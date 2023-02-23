@@ -26,20 +26,6 @@ Update-AzAppComplianceAutomationWebhook -Name <String> -ReportName <String> -Par
  [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### UpdateViaIdentity
-```
-Update-AzAppComplianceAutomationWebhook -InputObject <IAppComplianceAutomationIdentity>
- -Parameter <IWebhookResourcePatch> [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
-### UpdateViaIdentityExpanded
-```
-Update-AzAppComplianceAutomationWebhook -InputObject <IAppComplianceAutomationIdentity>
- [-ContentType <String>] [-Disable <Object>] [-EnableSslVerification <EnableSslVerification>]
- [-Events <NotificationEvent[]>] [-PayloadUrl <String>] [-Secret <String>] [-TriggerMode <SendAllEvents>]
- [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
 ## DESCRIPTION
 Update an exiting AppComplianceAutomation webhook.
 
@@ -74,7 +60,7 @@ content type
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -104,7 +90,7 @@ whether to disable webhook
 
 ```yaml
 Type: System.Object
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -119,7 +105,7 @@ whether to enable ssl verification
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -134,7 +120,7 @@ under which event notification should be sent.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -144,28 +130,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputObject
-Identity Parameter
-To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
-
-```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity
-Parameter Sets: UpdateViaIdentity, UpdateViaIdentityExpanded
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
 ### -Name
 Webhook Name.
 
 ```yaml
 Type: System.String
-Parameter Sets: Update, UpdateExpanded
+Parameter Sets: (All)
 Aliases: WebhookName
 
 Required: True
@@ -181,7 +151,7 @@ To construct, see NOTES section for PARAMETER properties and create a hash table
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResourcePatch
-Parameter Sets: Update, UpdateViaIdentity
+Parameter Sets: Update
 Aliases:
 
 Required: True
@@ -196,7 +166,7 @@ webhook payload url
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -211,7 +181,7 @@ Report Name.
 
 ```yaml
 Type: System.String
-Parameter Sets: Update, UpdateExpanded
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -227,7 +197,7 @@ If not set, this field value is null; otherwise, please set a string value.
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -242,7 +212,7 @@ whether to send notification under any event.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents
-Parameter Sets: UpdateExpanded, UpdateViaIdentityExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -290,8 +260,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResourcePatch
 
-### Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity
-
 ## OUTPUTS
 
 ### Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource
@@ -304,12 +272,6 @@ COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
-
-`INPUTOBJECT <IAppComplianceAutomationIdentity>`: Identity Parameter
-  - `[Id <String>]`: Resource identity path
-  - `[ReportName <String>]`: Report Name.
-  - `[SnapshotName <String>]`: Snapshot Name.
-  - `[WebhookName <String>]`: Webhook Name.
 
 `PARAMETER <IWebhookResourcePatch>`: A class represent a AppComplianceAutomation webhook resource update properties.
   - `[EnableSslVerification <EnableSslVerification?>]`: whether to enable ssl verification

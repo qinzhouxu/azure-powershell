@@ -25,20 +25,6 @@ New-AzAppComplianceAutomationReport -Name <String> -Resource <IResourceMetadata[
  [-WhatIf] [<CommonParameters>]
 ```
 
-### CreateViaIdentity
-```
-New-AzAppComplianceAutomationReport -InputObject <IAppComplianceAutomationIdentity>
- -Parameter <IReportResource> [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm] [-WhatIf]
- [<CommonParameters>]
-```
-
-### CreateViaIdentityExpanded
-```
-New-AzAppComplianceAutomationReport -InputObject <IAppComplianceAutomationIdentity>
- -Resource <IResourceMetadata[]> [-OfferGuid <String>] [-TimeZone <String>] [-TriggerTime <DateTime>]
- [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm] [-WhatIf] [<CommonParameters>]
-```
-
 ## DESCRIPTION
 Create a new AppComplianceAutomation report or update an exiting AppComplianceAutomation report.
 
@@ -98,28 +84,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputObject
-Identity Parameter
-To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
-
-```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity
-Parameter Sets: CreateViaIdentity, CreateViaIdentityExpanded
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
 ### -Name
 Report Name.
 
 ```yaml
 Type: System.String
-Parameter Sets: Create, CreateExpanded
+Parameter Sets: (All)
 Aliases: ReportName
 
 Required: True
@@ -149,7 +119,7 @@ Report offer Guid.
 
 ```yaml
 Type: System.String
-Parameter Sets: CreateExpanded, CreateViaIdentityExpanded
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -165,7 +135,7 @@ To construct, see NOTES section for PARAMETER properties and create a hash table
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource
-Parameter Sets: Create, CreateViaIdentity
+Parameter Sets: Create
 Aliases:
 
 Required: True
@@ -181,7 +151,7 @@ To construct, see NOTES section for RESOURCE properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]
-Parameter Sets: CreateExpanded, CreateViaIdentityExpanded
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: True
@@ -196,7 +166,7 @@ Report collection trigger time's time zone, the available list can be obtained b
 
 ```yaml
 Type: System.String
-Parameter Sets: CreateExpanded, CreateViaIdentityExpanded
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -211,7 +181,7 @@ Report collection trigger time.
 
 ```yaml
 Type: System.DateTime
-Parameter Sets: CreateExpanded, CreateViaIdentityExpanded
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -259,8 +229,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource
 
-### Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity
-
 ## OUTPUTS
 
 ### Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource
@@ -273,12 +241,6 @@ COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
-
-`INPUTOBJECT <IAppComplianceAutomationIdentity>`: Identity Parameter
-  - `[Id <String>]`: Resource identity path
-  - `[ReportName <String>]`: Report Name.
-  - `[SnapshotName <String>]`: Snapshot Name.
-  - `[WebhookName <String>]`: Webhook Name.
 
 `PARAMETER <IReportResource>`: A class represent an AppComplianceAutomation report resource.
   - `Resource <IResourceMetadata[]>`: List of resource data.

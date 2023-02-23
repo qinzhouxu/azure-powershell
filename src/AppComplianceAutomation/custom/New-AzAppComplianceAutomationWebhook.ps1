@@ -19,27 +19,15 @@
 Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook.
 .Description
 Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook.
-.Example
-{{ Add code here }}
-.Example
-{{ Add code here }}
 
 .Inputs
 Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource
-.Inputs
-Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource
 .Notes
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
-
-INPUTOBJECT <IAppComplianceAutomationIdentity>: Identity Parameter
-  [Id <String>]: Resource identity path
-  [ReportName <String>]: Report Name.
-  [SnapshotName <String>]: Snapshot Name.
-  [WebhookName <String>]: Webhook Name.
 
 PARAMETER <IWebhookResource>: A class represent an AppComplianceAutomation webhook resource.
   EnableSslVerification <EnableSslVerification>: whether to enable ssl verification
@@ -77,16 +65,7 @@ param(
     # Report Name.
     ${ReportName},
 
-    [Parameter(ParameterSetName='CreateViaIdentity', Mandatory, ValueFromPipeline)]
-    [Parameter(ParameterSetName='CreateViaIdentityExpanded', Mandatory, ValueFromPipeline)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity]
-    # Identity Parameter
-    # To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
-    ${InputObject},
-
     [Parameter(ParameterSetName='Create', Mandatory, ValueFromPipeline)]
-    [Parameter(ParameterSetName='CreateViaIdentity', Mandatory, ValueFromPipeline)]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource]
     # A class represent an AppComplianceAutomation webhook resource.
@@ -94,7 +73,6 @@ param(
     ${Parameter},
 
     [Parameter(ParameterSetName='CreateExpanded')]
-    [Parameter(ParameterSetName='CreateViaIdentityExpanded')]
     [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification])]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification]
@@ -102,12 +80,10 @@ param(
     ${EnableSslVerification},
 
     [Parameter(ParameterSetName='CreateExpanded')]
-    [Parameter(ParameterSetName='CreateViaIdentityExpanded')]
     # whether to disable webhook
     ${Disable},
 
     [Parameter(ParameterSetName='CreateExpanded', Mandatory)]
-    [Parameter(ParameterSetName='CreateViaIdentityExpanded', Mandatory)]
     [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents])]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents]
@@ -115,7 +91,6 @@ param(
     ${TriggerMode},
 
     [Parameter(ParameterSetName='CreateExpanded')]
-    [Parameter(ParameterSetName='CreateViaIdentityExpanded')]
     [AllowEmptyCollection()]
     [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
@@ -124,21 +99,18 @@ param(
     ${Events},
 
     [Parameter(ParameterSetName='CreateExpanded', Mandatory)]
-    [Parameter(ParameterSetName='CreateViaIdentityExpanded', Mandatory)]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.String]
     # webhook payload url
     ${PayloadUrl},
 
     [Parameter(ParameterSetName='CreateExpanded')]
-    [Parameter(ParameterSetName='CreateViaIdentityExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.String]
     # content type
     ${ContentType},
 
     [Parameter(ParameterSetName='CreateExpanded')]
-    [Parameter(ParameterSetName='CreateViaIdentityExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.String]
     # webhook secret token.

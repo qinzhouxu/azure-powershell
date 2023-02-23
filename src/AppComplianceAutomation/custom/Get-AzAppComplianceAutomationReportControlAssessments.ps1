@@ -19,10 +19,6 @@
 Get the AppComplianceAutomation report's control assessments.
 .Description
 Get the AppComplianceAutomation report's control assessments.
-.Example
-{{ Add code here }}
-.Example
-{{ Add code here }}
 
 .Link
 https://learn.microsoft.com/powershell/module/az.appcomplianceautomation/get-azappcomplianceautomationreportcontrolassessments

@@ -46,6 +46,9 @@ title: AppComplianceAutomation
 
 directive:
   - where:
+      variant: ^GetViaIdentity$|^CreateViaIdentity$|^CreateViaIdentityExpanded$|^DeleteViaIdentity$|^UpdateViaIdentity$|^UpdateViaIdentityExpanded$
+    remove: true
+  - where:
       verb: Get|Invoke|New|Remove|Set|Start|Update
     hide: true
   - from: swagger-document

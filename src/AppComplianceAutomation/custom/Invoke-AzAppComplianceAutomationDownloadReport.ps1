@@ -19,10 +19,6 @@
 Download compliance needs, like: Compliance Report, Resource List.
 .Description
 Download compliance needs, like: Compliance Report, Resource List.
-.Example
-{{ Add code here }}
-.Example
-{{ Add code here }}
 
 .Link
 https://learn.microsoft.com/powershell/module/az.appcomplianceautomation/invoke-azappcomplianceautomationdownloadreport

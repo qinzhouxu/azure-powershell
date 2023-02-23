@@ -19,10 +19,6 @@
 Trigger evaluation for given resourceIds to get quick compliance result.
 .Description
 Trigger evaluation for given resourceIds to get quick compliance result.
-.Example
-{{ Add code here }}
-.Example
-{{ Add code here }}
 
 .Link
 https://learn.microsoft.com/powershell/module/az.appcomplianceautomation/start-azappcomplianceautomationquickevaluation

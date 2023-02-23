@@ -19,25 +19,10 @@
 Get the AppComplianceAutomation webhook and its properties.
 .Description
 Get the AppComplianceAutomation webhook and its properties.
-.Example
-{{ Add code here }}
-.Example
-{{ Add code here }}
 
-.Inputs
-Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource
-.Notes
-COMPLEX PARAMETER PROPERTIES
 
-To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
-
-INPUTOBJECT <IAppComplianceAutomationIdentity>: Identity Parameter
-  [Id <String>]: Resource identity path
-  [ReportName <String>]: Report Name.
-  [SnapshotName <String>]: Snapshot Name.
-  [WebhookName <String>]: Webhook Name.
 .Link
 https://learn.microsoft.com/powershell/module/az.appcomplianceautomation/get-azappcomplianceautomationwebhook
 #>
@@ -58,13 +43,6 @@ param(
     [System.String]
     # Report Name.
     ${ReportName},
-
-    [Parameter(ParameterSetName='GetViaIdentity', Mandatory, ValueFromPipeline)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity]
-    # Identity Parameter
-    # To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
-    ${InputObject},
 
     [Parameter(ParameterSetName='List')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]

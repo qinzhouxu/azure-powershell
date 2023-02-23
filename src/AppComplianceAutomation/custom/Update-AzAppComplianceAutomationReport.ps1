@@ -19,27 +19,15 @@
 Update an exiting AppComplianceAutomation report.
 .Description
 Update an exiting AppComplianceAutomation report.
-.Example
-{{ Add code here }}
-.Example
-{{ Add code here }}
 
 .Inputs
 Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResourcePatch
-.Inputs
-Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource
 .Notes
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
-
-INPUTOBJECT <IAppComplianceAutomationIdentity>: Identity Parameter
-  [Id <String>]: Resource identity path
-  [ReportName <String>]: Report Name.
-  [SnapshotName <String>]: Snapshot Name.
-  [WebhookName <String>]: Webhook Name.
 
 PARAMETER <IReportResourcePatch>: A class represent a AppComplianceAutomation report resource update properties.
   [M365FailedCount <Int32?>]: The count of all failed full automation control.
@@ -78,16 +66,7 @@ param(
     # Report Name.
     ${Name},
 
-    [Parameter(ParameterSetName='UpdateViaIdentity', Mandatory, ValueFromPipeline)]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded', Mandatory, ValueFromPipeline)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity]
-    # Identity Parameter
-    # To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
-    ${InputObject},
-
     [Parameter(ParameterSetName='Update', Mandatory, ValueFromPipeline)]
-    [Parameter(ParameterSetName='UpdateViaIdentity', Mandatory, ValueFromPipeline)]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResourcePatch]
     # A class represent a AppComplianceAutomation report resource update properties.
@@ -95,14 +74,12 @@ param(
     ${Parameter},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.String]
     # Report offer Guid.
     ${OfferGuid},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [AllowEmptyCollection()]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
@@ -111,14 +88,12 @@ param(
     ${Resource},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.String]
     # Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.An example of valid timezone id is "Pacific Standard Time".
     ${TimeZone},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.DateTime]
     # Report collection trigger time.

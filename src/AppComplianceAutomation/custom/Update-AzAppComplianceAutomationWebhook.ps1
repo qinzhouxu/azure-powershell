@@ -19,27 +19,15 @@
 Update an exiting AppComplianceAutomation webhook.
 .Description
 Update an exiting AppComplianceAutomation webhook.
-.Example
-{{ Add code here }}
-.Example
-{{ Add code here }}
 
 .Inputs
 Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResourcePatch
-.Inputs
-Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource
 .Notes
 COMPLEX PARAMETER PROPERTIES
 
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
-
-INPUTOBJECT <IAppComplianceAutomationIdentity>: Identity Parameter
-  [Id <String>]: Resource identity path
-  [ReportName <String>]: Report Name.
-  [SnapshotName <String>]: Snapshot Name.
-  [WebhookName <String>]: Webhook Name.
 
 PARAMETER <IWebhookResourcePatch>: A class represent a AppComplianceAutomation webhook resource update properties.
   [EnableSslVerification <EnableSslVerification?>]: whether to enable ssl verification
@@ -71,16 +59,7 @@ param(
     # Report Name.
     ${ReportName},
 
-    [Parameter(ParameterSetName='UpdateViaIdentity', Mandatory, ValueFromPipeline)]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded', Mandatory, ValueFromPipeline)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.IAppComplianceAutomationIdentity]
-    # Identity Parameter
-    # To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
-    ${InputObject},
-
     [Parameter(ParameterSetName='Update', Mandatory, ValueFromPipeline)]
-    [Parameter(ParameterSetName='UpdateViaIdentity', Mandatory, ValueFromPipeline)]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResourcePatch]
     # A class represent a AppComplianceAutomation webhook resource update properties.
@@ -88,7 +67,6 @@ param(
     ${Parameter},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification])]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification]
@@ -96,12 +74,10 @@ param(
     ${EnableSslVerification},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     # whether to disable webhook
     ${Disable},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents])]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents]
@@ -109,7 +85,6 @@ param(
     ${TriggerMode},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [AllowEmptyCollection()]
     [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
@@ -118,21 +93,18 @@ param(
     ${Events},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.String]
     # webhook payload url
     ${PayloadUrl},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.String]
     # content type
     ${ContentType},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
-    [Parameter(ParameterSetName='UpdateViaIdentityExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
     [System.String]
     # webhook secret token.
