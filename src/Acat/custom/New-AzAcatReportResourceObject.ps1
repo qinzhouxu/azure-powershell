@@ -22,18 +22,6 @@ Create an in-memory object for ReportResource.
 
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IReportResource
-.Notes
-COMPLEX PARAMETER PROPERTIES
-
-To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
-
-RESOURCE <IResourceMetadata[]>: List of resource data.
-  ResourceId <String>: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
-  [ResourceKind <String>]: Resource kind.
-  [ResourceOrigin <ResourceOrigin?>]: Resource Origin.
-  [ResourceType <String>]: Resource type. e.g. "Microsoft.Compute/virtualMachines"
-  [Tag <IResourceMetadataTags>]: Resource's tag type.
-    [(Any) <String>]: This indicates any property can be added to this object.
 .Link
 https://learn.microsoft.com/powershell/module/az.acat/new-azacatreportresourceobject
 #>

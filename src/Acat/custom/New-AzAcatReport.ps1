@@ -20,43 +20,8 @@ Create a new AppComplianceAutomation report or update an exiting AppComplianceAu
 .Description
 Create a new AppComplianceAutomation report or update an exiting AppComplianceAutomation report.
 
-.Inputs
-Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IReportResource
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IReportResource
-.Notes
-COMPLEX PARAMETER PROPERTIES
-
-To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
-
-PARAMETER <IReportResource>: A class represent an AppComplianceAutomation report resource.
-  Resource <IResourceMetadata[]>: List of resource data.
-    ResourceId <String>: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
-    [ResourceKind <String>]: Resource kind.
-    [ResourceOrigin <ResourceOrigin?>]: Resource Origin.
-    [ResourceType <String>]: Resource type. e.g. "Microsoft.Compute/virtualMachines"
-    [Tag <IResourceMetadataTags>]: Resource's tag type.
-      [(Any) <String>]: This indicates any property can be added to this object.
-  TimeZone <String>: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.         An example of valid timezone id is "Pacific Standard Time".
-  TriggerTime <DateTime>: Report collection trigger time.
-  [SystemDataCreatedAt <DateTime?>]: The timestamp of resource creation (UTC).
-  [SystemDataCreatedBy <String>]: The identity that created the resource.
-  [SystemDataCreatedByType <CreatedByType?>]: The type of identity that created the resource.
-  [SystemDataLastModifiedAt <DateTime?>]: The timestamp of resource last modification (UTC)
-  [SystemDataLastModifiedBy <String>]: The identity that last modified the resource.
-  [SystemDataLastModifiedByType <CreatedByType?>]: The type of identity that last modified the resource.
-  [M365FailedCount <Int32?>]: The count of all failed full automation control.
-  [M365ManualCount <Int32?>]: The count of all manual control.
-  [M365PassedCount <Int32?>]: The count of all passed full automation control.
-  [OfferGuid <String>]: Report offer Guid.
-
-RESOURCE <IResourceMetadata[]>: List of resource data.
-  ResourceId <String>: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
-  [ResourceKind <String>]: Resource kind.
-  [ResourceOrigin <ResourceOrigin?>]: Resource Origin.
-  [ResourceType <String>]: Resource type. e.g. "Microsoft.Compute/virtualMachines"
-  [Tag <IResourceMetadataTags>]: Resource's tag type.
-    [(Any) <String>]: This indicates any property can be added to this object.
 .Link
 https://learn.microsoft.com/powershell/module/az.acat/new-azacatreport
 #>

@@ -22,7 +22,6 @@ Delete an AppComplianceAutomation webhook.
 
 .Outputs
 System.Boolean
-
 .Link
 https://learn.microsoft.com/powershell/module/az.acat/remove-azacatwebhook
 #>

@@ -20,23 +20,8 @@ Update an exiting AppComplianceAutomation webhook.
 .Description
 Update an exiting AppComplianceAutomation webhook.
 
-.Inputs
-Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResourcePatch
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResource
-.Notes
-COMPLEX PARAMETER PROPERTIES
-
-To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
-
-PARAMETER <IWebhookResourcePatch>: A class represent a AppComplianceAutomation webhook resource update properties.
-  [EnableSslVerification <EnableSslVerification?>]: whether to enable ssl verification
-  [Event <NotificationEvent[]>]: under which event notification should be sent.
-  [PayloadUrl <String>]: webhook payload url
-  [SendAllEvent <SendAllEvents?>]: whether to send notification under any event.
-  [Status <WebhookStatus?>]: Webhook status.
-  [UpdateWebhookKey <UpdateWebhookKey?>]: whether to update webhookKey.
-  [WebhookKey <String>]: webhook secret token. If not set, this field value is null; otherwise, please set a string value.
 .Link
 https://learn.microsoft.com/powershell/module/az.acat/update-azacatwebhook
 #>

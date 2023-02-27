@@ -20,29 +20,8 @@ Create a new AppComplianceAutomation webhook or update an exiting AppComplianceA
 .Description
 Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook.
 
-.Inputs
-Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResource
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResource
-.Notes
-COMPLEX PARAMETER PROPERTIES
-
-To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
-
-PARAMETER <IWebhookResource>: A class represent an AppComplianceAutomation webhook resource.
-  EnableSslVerification <EnableSslVerification>: whether to enable ssl verification
-  Event <NotificationEvent[]>: under which event notification should be sent.
-  PayloadUrl <String>: webhook payload url
-  SendAllEvent <SendAllEvents>: whether to send notification under any event.
-  Status <WebhookStatus>: Webhook status.
-  [SystemDataCreatedAt <DateTime?>]: The timestamp of resource creation (UTC).
-  [SystemDataCreatedBy <String>]: The identity that created the resource.
-  [SystemDataCreatedByType <CreatedByType?>]: The type of identity that created the resource.
-  [SystemDataLastModifiedAt <DateTime?>]: The timestamp of resource last modification (UTC)
-  [SystemDataLastModifiedBy <String>]: The identity that last modified the resource.
-  [SystemDataLastModifiedByType <CreatedByType?>]: The type of identity that last modified the resource.
-  [UpdateWebhookKey <UpdateWebhookKey?>]: whether to update webhookKey.
-  [WebhookKey <String>]: webhook secret token. If not set, this field value is null; otherwise, please set a string value.
 .Link
 https://learn.microsoft.com/powershell/module/az.acat/new-azacatwebhook
 #>

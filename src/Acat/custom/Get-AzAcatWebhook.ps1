@@ -22,7 +22,6 @@ Get the AppComplianceAutomation webhook and its properties.
 
 .Outputs
 Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResource
-
 .Link
 https://learn.microsoft.com/powershell/module/az.acat/get-azacatwebhook
 #>
