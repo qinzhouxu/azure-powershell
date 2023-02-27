@@ -27,9 +27,9 @@ https://learn.microsoft.com/powershell/module/az.acat/remove-azacatreport
 #>
 function Remove-AzAcatReport {
 [OutputType([System.Boolean])]
-[CmdletBinding(DefaultParameterSetName='Delete', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
+[CmdletBinding(PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
 param(
-    [Parameter(ParameterSetName='Delete', Mandatory)]
+    [Parameter(Mandatory)]
     [Alias('ReportName')]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Path')]
     [System.String]

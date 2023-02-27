@@ -25,15 +25,15 @@ https://learn.microsoft.com/powershell/module/az.acat/get-azacatcontrolassessmen
 #>
 function Get-AzAcatControlAssessments {
 [OutputType([Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.ISnapshotResource])]
-[CmdletBinding(DefaultParameterSetName='List', PositionalBinding=$false)]
+[CmdletBinding(PositionalBinding=$false)]
 param(
-    [Parameter(ParameterSetName='List', Mandatory)]
+    [Parameter(Mandatory)]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Path')]
     [System.String]
     # Report Name.
     ${ReportName},
 
-    [Parameter(ParameterSetName='List')]
+    [Parameter()]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Path')]
     [System.String]
     # Compliance Status.

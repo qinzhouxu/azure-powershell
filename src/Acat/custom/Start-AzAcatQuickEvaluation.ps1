@@ -25,9 +25,9 @@ https://learn.microsoft.com/powershell/module/az.acat/start-azacatquickevaluatio
 #>
 function Start-AzAcatQuickEvaluation {
 [OutputType([Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.ITriggerEvaluationResponse])]
-[CmdletBinding(DefaultParameterSetName='TriggerExpanded', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
+[CmdletBinding(PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
 param(
-    [Parameter(ParameterSetName='TriggerExpanded', Mandatory)]
+    [Parameter(Mandatory)]
     [AllowEmptyCollection()]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Body')]
     [System.String[]]

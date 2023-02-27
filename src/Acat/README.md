@@ -49,7 +49,10 @@ directive:
       variant: ^GetViaIdentity$|^CreateViaIdentity$|^CreateViaIdentityExpanded$|^DeleteViaIdentity$|^UpdateViaIdentity$|^UpdateViaIdentityExpanded$
     remove: true
   - where:
-      verb: Get|Invoke|New|Remove|Set|Start|Update
+      verb: Set
+    remove: true
+  - where:
+      verb: Get|Invoke|New|Remove|Start|Update
     hide: true
   - from: swagger-document
     where:

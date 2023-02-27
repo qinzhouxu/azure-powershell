@@ -20,31 +20,34 @@ Download compliance needs, like: Compliance Report, Resource List.
 .Description
 Download compliance needs, like: Compliance Report, Resource List.
 
+.Outputs
+System.Boolean
 .Link
 https://learn.microsoft.com/powershell/module/az.acat/invoke-azacatdownloadreport
 #>
 function Invoke-AzAcatDownloadReport {
-[CmdletBinding(DefaultParameterSetName='Download', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
+[OutputType([System.Boolean])]
+[CmdletBinding(PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
 param(
-    [Parameter(ParameterSetName='Download', Mandatory)]
+    [Parameter(Mandatory)]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Path')]
     [System.String]
     # Report Name.
     ${ReportName},
 
-    [Parameter(ParameterSetName='Download', Mandatory)]
+    [Parameter(Mandatory)]
     [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.Acat.Support.DownloadType])]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Body')]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Support.DownloadType]
     # Indicates the download type.
     ${DownloadType},
 
-    [Parameter(ParameterSetName='Download', Mandatory)]
+    [Parameter(Mandatory)]
     [System.String]
     # File download destination path.
     ${Path},
 
-    [Parameter(ParameterSetName='Download', Mandatory)]
+    [Parameter(Mandatory)]
     [System.String]
     # Downloaded file name.
     ${Name},

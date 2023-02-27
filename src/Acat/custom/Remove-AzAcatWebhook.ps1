@@ -27,16 +27,16 @@ https://learn.microsoft.com/powershell/module/az.acat/remove-azacatwebhook
 #>
 function Remove-AzAcatWebhook {
 [OutputType([System.Boolean])]
-[CmdletBinding(DefaultParameterSetName='Delete', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
+[CmdletBinding(PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
 param(
-    [Parameter(ParameterSetName='Delete', Mandatory)]
+    [Parameter(Mandatory)]
     [Alias('WebhookName')]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Path')]
     [System.String]
     # Webhook Name.
     ${Name},
 
-    [Parameter(ParameterSetName='Delete', Mandatory)]
+    [Parameter(Mandatory)]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Path')]
     [System.String]
     # Report Name.
