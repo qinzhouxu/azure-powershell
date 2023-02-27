@@ -15,7 +15,7 @@ Create a new AppComplianceAutomation webhook or update an exiting AppComplianceA
 ### CreateExpanded (Default)
 ```
 New-AzAcatWebhook -Name <String> -ReportName <String> -PayloadUrl <String> -TriggerMode <SendAllEvents>
- [-ContentType <String>] [-Disable <Object>] [-EnableSslVerification <EnableSslVerification>]
+ [-ContentType <String>] [-Disable <Boolean>] [-EnableSslVerification <EnableSslVerification>]
  [-Events <NotificationEvent[]>] [-Secret <String>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
@@ -89,7 +89,7 @@ Accept wildcard characters: False
 whether to disable webhook
 
 ```yaml
-Type: System.Object
+Type: System.Boolean
 Parameter Sets: CreateExpanded
 Aliases:
 

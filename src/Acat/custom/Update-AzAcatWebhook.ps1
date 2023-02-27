@@ -74,6 +74,7 @@ param(
     ${EnableSslVerification},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
+    [System.Boolean]
     # whether to disable webhook
     ${Disable},
 

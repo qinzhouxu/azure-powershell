@@ -62,7 +62,7 @@ https://learn.microsoft.com/powershell/module/az.acat/new-azacatreport
 #>
 function New-AzAcatReport {
 [OutputType([Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IReportResource])]
-[CmdletBinding(DefaultParameterSetName='Create', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
+[CmdletBinding(DefaultParameterSetName='CreateExpanded', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
 param(
     [Parameter(ParameterSetName='Create', Mandatory)]
     [Parameter(ParameterSetName='CreateExpanded', Mandatory)]

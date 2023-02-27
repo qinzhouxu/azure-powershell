@@ -26,8 +26,14 @@ Download compliance needs, like: Compliance Report, Resource List.
 ### [New-AzAcatReport](New-AzAcatReport.md)
 Create a new AppComplianceAutomation report or update an exiting AppComplianceAutomation report.
 
+### [New-AzAcatReportResourceObject](New-AzAcatReportResourceObject.md)
+Create an in-memory object for ReportResource.
+
 ### [New-AzAcatWebhook](New-AzAcatWebhook.md)
 Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook.
+
+### [New-AzAcatWebhookResourceObject](New-AzAcatWebhookResourceObject.md)
+Create an in-memory object for WebhookResource.
 
 ### [Remove-AzAcatReport](Remove-AzAcatReport.md)
 Delete an AppComplianceAutomation report.

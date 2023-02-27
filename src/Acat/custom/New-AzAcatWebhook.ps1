@@ -80,6 +80,7 @@ param(
     ${EnableSslVerification},
 
     [Parameter(ParameterSetName='CreateExpanded')]
+    [System.Boolean]
     # whether to disable webhook
     ${Disable},
 

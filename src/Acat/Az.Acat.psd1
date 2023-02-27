@@ -11,7 +11,7 @@
   DotNetFrameworkVersion = '4.7.2'
   RequiredAssemblies = './bin/Az.Acat.private.dll'
   FormatsToProcess = './Az.Acat.format.ps1xml'
-  FunctionsToExport = 'Get-AzAcatControlAssessments', 'Get-AzAcatReport', 'Get-AzAcatWebhook', 'Invoke-AzAcatDownloadReport', 'New-AzAcatReport', 'New-AzAcatWebhook', 'Remove-AzAcatReport', 'Remove-AzAcatWebhook', 'Start-AzAcatQuickEvaluation', 'Update-AzAcatReport', 'Update-AzAcatWebhook', '*'
+  FunctionsToExport = 'Get-AzAcatControlAssessments', 'Get-AzAcatReport', 'Get-AzAcatWebhook', 'Invoke-AzAcatDownloadReport', 'New-AzAcatReport', 'New-AzAcatReportResourceObject', 'New-AzAcatWebhook', 'New-AzAcatWebhookResourceObject', 'Remove-AzAcatReport', 'Remove-AzAcatWebhook', 'Start-AzAcatQuickEvaluation', 'Update-AzAcatReport', 'Update-AzAcatWebhook', '*'
   AliasesToExport = '*'
   PrivateData = @{
     PSData = @{

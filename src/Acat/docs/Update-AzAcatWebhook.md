@@ -14,7 +14,7 @@ Update an exiting AppComplianceAutomation webhook.
 
 ### UpdateExpanded (Default)
 ```
-Update-AzAcatWebhook -Name <String> -ReportName <String> [-ContentType <String>] [-Disable <Object>]
+Update-AzAcatWebhook -Name <String> -ReportName <String> [-ContentType <String>] [-Disable <Boolean>]
  [-EnableSslVerification <EnableSslVerification>] [-Events <NotificationEvent[]>] [-PayloadUrl <String>]
  [-Secret <String>] [-TriggerMode <SendAllEvents>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
@@ -89,7 +89,7 @@ Accept wildcard characters: False
 whether to disable webhook
 
 ```yaml
-Type: System.Object
+Type: System.Boolean
 Parameter Sets: UpdateExpanded
 Aliases:
 
