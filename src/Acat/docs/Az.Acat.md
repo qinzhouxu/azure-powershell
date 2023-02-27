@@ -1,0 +1,46 @@
+---
+Module Name: Az.Acat
+Module Guid: 181ba138-c31b-435b-b736-7346c340f4ba
+Download Help Link: https://learn.microsoft.com/powershell/module/az.acat
+Help Version: 1.0.0.0
+Locale: en-US
+---
+
+# Az.Acat Module
+## Description
+Microsoft Azure PowerShell: Acat cmdlets
+
+## Az.Acat Cmdlets
+### [Get-AzAcatControlAssessments](Get-AzAcatControlAssessments.md)
+Get the AppComplianceAutomation report's control assessments.
+
+### [Get-AzAcatReport](Get-AzAcatReport.md)
+Get the AppComplianceAutomation report and its properties.
+
+### [Get-AzAcatWebhook](Get-AzAcatWebhook.md)
+Get the AppComplianceAutomation webhook and its properties.
+
+### [Invoke-AzAcatDownloadReport](Invoke-AzAcatDownloadReport.md)
+Download compliance needs, like: Compliance Report, Resource List.
+
+### [New-AzAcatReport](New-AzAcatReport.md)
+Create a new AppComplianceAutomation report or update an exiting AppComplianceAutomation report.
+
+### [New-AzAcatWebhook](New-AzAcatWebhook.md)
+Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook.
+
+### [Remove-AzAcatReport](Remove-AzAcatReport.md)
+Delete an AppComplianceAutomation report.
+
+### [Remove-AzAcatWebhook](Remove-AzAcatWebhook.md)
+Delete an AppComplianceAutomation webhook.
+
+### [Start-AzAcatQuickEvaluation](Start-AzAcatQuickEvaluation.md)
+Trigger evaluation for given resourceIds to get quick compliance result.
+
+### [Update-AzAcatReport](Update-AzAcatReport.md)
+Update an exiting AppComplianceAutomation report.
+
+### [Update-AzAcatWebhook](Update-AzAcatWebhook.md)
+Update an exiting AppComplianceAutomation webhook.
+
