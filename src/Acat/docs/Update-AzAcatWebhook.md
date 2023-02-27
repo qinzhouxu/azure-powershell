@@ -22,7 +22,7 @@ Update-AzAcatWebhook -Name <String> -ReportName <String> [-ContentType <String>]
 
 ### Update
 ```
-Update-AzAcatWebhook -Name <String> -ReportName <String> -Parameter <IWebhookResourcePatch>
+Update-AzAcatWebhook -Name <String> -ReportName <String> -Parameter <IWebhookResource>
  [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -150,7 +150,7 @@ A class represent a AppComplianceAutomation webhook resource update properties.
 To construct, see NOTES section for PARAMETER properties and create a hash table.
 
 ```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResourcePatch
+Type: Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResource
 Parameter Sets: Update
 Aliases:
 
@@ -258,7 +258,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResourcePatch
+### Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IWebhookResource
 
 ## OUTPUTS
 
@@ -273,12 +273,18 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-`PARAMETER <IWebhookResourcePatch>`: A class represent a AppComplianceAutomation webhook resource update properties.
-  - `[EnableSslVerification <EnableSslVerification?>]`: whether to enable ssl verification
-  - `[Event <NotificationEvent[]>]`: under which event notification should be sent.
-  - `[PayloadUrl <String>]`: webhook payload url
-  - `[SendAllEvent <SendAllEvents?>]`: whether to send notification under any event.
-  - `[Status <WebhookStatus?>]`: Webhook status.
+`PARAMETER <IWebhookResource>`: A class represent a AppComplianceAutomation webhook resource update properties.
+  - `EnableSslVerification <EnableSslVerification>`: whether to enable ssl verification
+  - `Event <NotificationEvent[]>`: under which event notification should be sent.
+  - `PayloadUrl <String>`: webhook payload url
+  - `SendAllEvent <SendAllEvents>`: whether to send notification under any event.
+  - `Status <WebhookStatus>`: Webhook status.
+  - `[SystemDataCreatedAt <DateTime?>]`: The timestamp of resource creation (UTC).
+  - `[SystemDataCreatedBy <String>]`: The identity that created the resource.
+  - `[SystemDataCreatedByType <CreatedByType?>]`: The type of identity that created the resource.
+  - `[SystemDataLastModifiedAt <DateTime?>]`: The timestamp of resource last modification (UTC)
+  - `[SystemDataLastModifiedBy <String>]`: The identity that last modified the resource.
+  - `[SystemDataLastModifiedByType <CreatedByType?>]`: The type of identity that last modified the resource.
   - `[UpdateWebhookKey <UpdateWebhookKey?>]`: whether to update webhookKey.
   - `[WebhookKey <String>]`: webhook secret token. If not set, this field value is null; otherwise, please set a string value.
 

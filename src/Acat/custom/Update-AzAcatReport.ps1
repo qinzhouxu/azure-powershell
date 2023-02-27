@@ -39,7 +39,7 @@ param(
 
     [Parameter(ParameterSetName='Update', Mandatory, ValueFromPipeline)]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IReportResourcePatch]
+    [Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IReportResource]
     # A class represent a AppComplianceAutomation report resource update properties.
     # To construct, see NOTES section for PARAMETER properties and create a hash table.
     ${Parameter},
