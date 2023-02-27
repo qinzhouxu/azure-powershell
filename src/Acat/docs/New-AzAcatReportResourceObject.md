@@ -13,7 +13,7 @@ Create an in-memory object for ReportResource.
 ## SYNTAX
 
 ```
-New-AzAcatReportResourceObject [-OfferGuid <String>] [-Resource <IResourceMetadata[]>] [-TimeZone <String>]
+New-AzAcatReportResourceObject [-OfferGuid <String>] [-Resources <IResourceMetadata[]>] [-TimeZone <String>]
  [-TriggerTime <DateTime>] [<CommonParameters>]
 ```
 
@@ -61,9 +61,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Resource
+### -Resources
 List of resource data.
 To construct, see NOTES section for RESOURCE properties and create a hash table.
+To construct, see NOTES section for RESOURCES properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IResourceMetadata[]
@@ -125,7 +126,7 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-`RESOURCE <IResourceMetadata[]>`: List of resource data.
+`RESOURCES <IResourceMetadata[]>`: List of resource data. To construct, see NOTES section for RESOURCE properties and create a hash table.
   - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
   - `[ResourceKind <String>]`: Resource kind.
   - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.

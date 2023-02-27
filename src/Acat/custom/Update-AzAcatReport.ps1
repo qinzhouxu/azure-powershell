@@ -85,7 +85,7 @@ param(
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IResourceMetadata[]]
     # List of resource data.
     # To construct, see NOTES section for RESOURCE properties and create a hash table.
-    ${Resource},
+    ${Resources},
 
     [Parameter(ParameterSetName='UpdateExpanded')]
     [Microsoft.Azure.PowerShell.Cmdlets.Acat.Category('Body')]

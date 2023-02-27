@@ -14,7 +14,7 @@ Update an exiting AppComplianceAutomation report.
 
 ### UpdateExpanded (Default)
 ```
-Update-AzAcatReport -Name <String> [-OfferGuid <String>] [-Resource <IResourceMetadata[]>]
+Update-AzAcatReport -Name <String> [-OfferGuid <String>] [-Resources <IResourceMetadata[]>]
  [-TimeZone <String>] [-TriggerTime <DateTime>] [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm]
  [-WhatIf] [<CommonParameters>]
 ```
@@ -145,9 +145,10 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -Resource
+### -Resources
 List of resource data.
 To construct, see NOTES section for RESOURCE properties and create a hash table.
+To construct, see NOTES section for RESOURCES properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IResourceMetadata[]
@@ -257,7 +258,7 @@ To create the parameters described below, construct a hash table containing the 
   - `[TimeZone <String>]`: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.         An example of valid timezone id is "Pacific Standard Time".
   - `[TriggerTime <DateTime?>]`: Report collection trigger time.
 
-`RESOURCE <IResourceMetadata[]>`: List of resource data.
+`RESOURCES <IResourceMetadata[]>`: List of resource data. To construct, see NOTES section for RESOURCE properties and create a hash table.
   - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
   - `[ResourceKind <String>]`: Resource kind.
   - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.

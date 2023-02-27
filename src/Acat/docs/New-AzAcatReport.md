@@ -14,7 +14,7 @@ Create a new AppComplianceAutomation report or update an exiting AppComplianceAu
 
 ### CreateExpanded (Default)
 ```
-New-AzAcatReport -Name <String> -Resource <IResourceMetadata[]> [-OfferGuid <String>] [-TimeZone <String>]
+New-AzAcatReport -Name <String> -Resources <IResourceMetadata[]> [-OfferGuid <String>] [-TimeZone <String>]
  [-TriggerTime <DateTime>] [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
@@ -145,9 +145,10 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -Resource
+### -Resources
 List of resource data.
 To construct, see NOTES section for RESOURCE properties and create a hash table.
+To construct, see NOTES section for RESOURCES properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.Acat.Models.Api20230215Preview.IResourceMetadata[]
@@ -263,7 +264,7 @@ To create the parameters described below, construct a hash table containing the 
   - `[M365PassedCount <Int32?>]`: The count of all passed full automation control.
   - `[OfferGuid <String>]`: Report offer Guid.
 
-`RESOURCE <IResourceMetadata[]>`: List of resource data.
+`RESOURCES <IResourceMetadata[]>`: List of resource data. To construct, see NOTES section for RESOURCE properties and create a hash table.
   - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
   - `[ResourceKind <String>]`: Resource kind.
   - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.
