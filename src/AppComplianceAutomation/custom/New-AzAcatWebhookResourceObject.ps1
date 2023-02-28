@@ -26,51 +26,51 @@ Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Pre
 https://learn.microsoft.com/powershell/module/az.appComplianceAutomation/new-azacatwebhookresourceobject
 #>
 function New-AzAcatWebhookResourceObject {
-[OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource])]
-[CmdletBinding(PositionalBinding=$false)]
-param(
-    [Parameter()]
-    [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification])]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification]
-    # whether to enable ssl verification
-    ${EnableSslVerification},
+    [OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource])]
+    [CmdletBinding(PositionalBinding = $false)]
+    param(
+        [Parameter()]
+        [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification])]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification]
+        # whether to enable ssl verification
+        ${EnableSslVerification},
 
-    [Parameter()]
-    [System.Boolean]
-    # whether to disable webhook
-    ${Disable},
+        [Parameter()]
+        [System.Management.Automation.SwitchParameter]
+        # whether to disable webhook
+        ${Disable},
 
-    [Parameter()]
-    [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents])]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents]
-    # whether to send notification under any event.
-    ${TriggerMode},
+        [Parameter()]
+        [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents])]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents]
+        # whether to send notification under any event.
+        ${TriggerMode},
 
-    [Parameter()]
-    [AllowEmptyCollection()]
-    [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]]
-    # under which event notification should be sent.
-    ${Events},
+        [Parameter()]
+        [AllowEmptyCollection()]
+        [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]]
+        # under which event notification should be sent.
+        ${Events},
 
-    [Parameter()]
-    [System.String]
-    # webhook payload url
-    ${PayloadUrl},
+        [Parameter()]
+        [System.String]
+        # webhook payload url
+        ${PayloadUrl},
 
-    [Parameter()]
-    [System.String]
-    # content type
-    ${ContentType},
+        [Parameter()]
+        [System.String]
+        # content type
+        ${ContentType},
 
-    [Parameter()]
-    [System.String]
-    # webhook secret token.
-    # If not set, this field value is null; otherwise, please set a string value.
-    ${Secret}
-)
+        [Parameter()]
+        [System.Security.SecureString]
+        # webhook secret token.
+        # If not set, this field value is null; otherwise, please set a string value.
+        ${Secret}
+    )
 
-process {
+    process {
     
-}
+    }
 }

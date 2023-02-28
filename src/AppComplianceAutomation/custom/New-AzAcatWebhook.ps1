@@ -26,126 +26,126 @@ Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Pre
 https://learn.microsoft.com/powershell/module/az.appComplianceAutomation/new-azacatwebhook
 #>
 function New-AzAcatWebhook {
-[OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource])]
-[CmdletBinding(DefaultParameterSetName='CreateExpanded', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
-param(
-    [Parameter(ParameterSetName='Create', Mandatory)]
-    [Parameter(ParameterSetName='CreateExpanded', Mandatory)]
-    [Alias('WebhookName')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
-    [System.String]
-    # Webhook Name.
-    ${Name},
+    [OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource])]
+    [CmdletBinding(DefaultParameterSetName = 'CreateExpanded', PositionalBinding = $false, SupportsShouldProcess, ConfirmImpact = 'Medium')]
+    param(
+        [Parameter(ParameterSetName = 'Create', Mandatory)]
+        [Parameter(ParameterSetName = 'CreateExpanded', Mandatory)]
+        [Alias('WebhookName')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
+        [System.String]
+        # Webhook Name.
+        ${Name},
 
-    [Parameter(ParameterSetName='Create', Mandatory)]
-    [Parameter(ParameterSetName='CreateExpanded', Mandatory)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
-    [System.String]
-    # Report Name.
-    ${ReportName},
+        [Parameter(ParameterSetName = 'Create', Mandatory)]
+        [Parameter(ParameterSetName = 'CreateExpanded', Mandatory)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
+        [System.String]
+        # Report Name.
+        ${ReportName},
 
-    [Parameter(ParameterSetName='Create', Mandatory, ValueFromPipeline)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource]
-    # A class represent an AppComplianceAutomation webhook resource.
-    # To construct, see NOTES section for PARAMETER properties and create a hash table.
-    ${Parameter},
+        [Parameter(ParameterSetName = 'Create', Mandatory, ValueFromPipeline)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource]
+        # A class represent an AppComplianceAutomation webhook resource.
+        # To construct, see NOTES section for PARAMETER properties and create a hash table.
+        ${Parameter},
 
-    [Parameter(ParameterSetName='CreateExpanded')]
-    [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification])]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification]
-    # whether to enable ssl verification
-    ${EnableSslVerification},
+        [Parameter(ParameterSetName = 'CreateExpanded')]
+        [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification])]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification]
+        # whether to enable ssl verification
+        ${EnableSslVerification},
 
-    [Parameter(ParameterSetName='CreateExpanded')]
-    [System.Boolean]
-    # whether to disable webhook
-    ${Disable},
+        [Parameter(ParameterSetName = 'CreateExpanded')]
+        [System.Management.Automation.SwitchParameter]
+        # whether to disable webhook
+        ${Disable},
 
-    [Parameter(ParameterSetName='CreateExpanded', Mandatory)]
-    [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents])]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents]
-    # whether to send notification under any event.
-    ${TriggerMode},
+        [Parameter(ParameterSetName = 'CreateExpanded', Mandatory)]
+        [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents])]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents]
+        # whether to send notification under any event.
+        ${TriggerMode},
 
-    [Parameter(ParameterSetName='CreateExpanded')]
-    [AllowEmptyCollection()]
-    [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]]
-    # under which event notification should be sent.
-    ${Events},
+        [Parameter(ParameterSetName = 'CreateExpanded')]
+        [AllowEmptyCollection()]
+        [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]]
+        # under which event notification should be sent.
+        ${Events},
 
-    [Parameter(ParameterSetName='CreateExpanded', Mandatory)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [System.String]
-    # webhook payload url
-    ${PayloadUrl},
+        [Parameter(ParameterSetName = 'CreateExpanded', Mandatory)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [System.String]
+        # webhook payload url
+        ${PayloadUrl},
 
-    [Parameter(ParameterSetName='CreateExpanded')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [System.String]
-    # content type
-    ${ContentType},
+        [Parameter(ParameterSetName = 'CreateExpanded')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [System.String]
+        # content type
+        ${ContentType},
 
-    [Parameter(ParameterSetName='CreateExpanded')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [System.String]
-    # webhook secret token.
-    # If not set, this field value is null; otherwise, please set a string value.
-    ${Secret},
+        [Parameter(ParameterSetName = 'CreateExpanded')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [System.Security.SecureString]
+        # webhook secret token.
+        # If not set, this field value is null; otherwise, please set a string value.
+        ${Secret},
 
-    [Parameter()]
-    [Alias('AzureRMContext', 'AzureCredential')]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Azure')]
-    [System.Management.Automation.PSObject]
-    # The credentials, account, tenant, and subscription used for communication with Azure.
-    ${DefaultProfile},
+        [Parameter()]
+        [Alias('AzureRMContext', 'AzureCredential')]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Azure')]
+        [System.Management.Automation.PSObject]
+        # The credentials, account, tenant, and subscription used for communication with Azure.
+        ${DefaultProfile},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.SwitchParameter]
-    # Wait for .NET debugger to attach
-    ${Break},
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.SwitchParameter]
+        # Wait for .NET debugger to attach
+        ${Break},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
-    # SendAsync Pipeline Steps to be appended to the front of the pipeline
-    ${HttpPipelineAppend},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
+        # SendAsync Pipeline Steps to be appended to the front of the pipeline
+        ${HttpPipelineAppend},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
-    # SendAsync Pipeline Steps to be prepended to the front of the pipeline
-    ${HttpPipelinePrepend},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
+        # SendAsync Pipeline Steps to be prepended to the front of the pipeline
+        ${HttpPipelinePrepend},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Uri]
-    # The URI for the proxy server to use
-    ${Proxy},
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Uri]
+        # The URI for the proxy server to use
+        ${Proxy},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.PSCredential]
-    # Credentials for a proxy server to use for the remote call
-    ${ProxyCredential},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.PSCredential]
+        # Credentials for a proxy server to use for the remote call
+        ${ProxyCredential},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.SwitchParameter]
-    # Use the default credentials for the proxy
-    ${ProxyUseDefaultCredentials}
-)
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.SwitchParameter]
+        # Use the default credentials for the proxy
+        ${ProxyUseDefaultCredentials}
+    )
 
-process {
+    process {
     
-}
+    }
 }

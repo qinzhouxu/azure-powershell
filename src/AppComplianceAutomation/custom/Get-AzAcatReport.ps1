@@ -26,88 +26,86 @@ Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Pre
 https://learn.microsoft.com/powershell/module/az.appComplianceAutomation/get-azacatreport
 #>
 function Get-AzAcatReport {
-[OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource])]
-[CmdletBinding(DefaultParameterSetName='List', PositionalBinding=$false)]
-param(
-    [Parameter(ParameterSetName='Get', Mandatory)]
-    [Alias('ReportName')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
-    [System.String]
-    # Report Name.
-    ${Name},
+    [OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource])]
+    [CmdletBinding(DefaultParameterSetName = 'List', PositionalBinding = $false)]
+    param(
+        [Parameter(ParameterSetName = 'Get', Mandatory)]
+        [Alias('ReportName')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
+        [System.String]
+        # Report Name.
+        ${Name},
 
-    [Parameter(ParameterSetName='List')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
-    [System.String]
-    # OData Select statement.
-    # Limits the properties on each entry to just those requested, e.g.
-    # ?$select=reportName,id.
-    ${Select},
+        [Parameter(ParameterSetName = 'List')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
+        [System.String]
+        # OData Select statement.
+        # Limits the properties on each entry to just those requested, e.g.
+        # ?$select=reportName,id.
+        ${Select},
 
-    [Parameter(ParameterSetName='List')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
-    [System.String]
-    # Skip over when retrieving results.
-    ${SkipToken},
+        [Parameter(ParameterSetName = 'List')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
+        [System.String]
+        # Skip over when retrieving results.
+        ${SkipToken},
 
-    [Parameter(ParameterSetName='List')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
-    [System.Int32]
-    # Number of elements to return when retrieving results.
-    ${Top},
+        [Parameter(ParameterSetName = 'List')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
+        [System.Int32]
+        # Number of elements to return when retrieving results.
+        ${Top},
 
-    [Parameter()]
-    [Alias('AzureRMContext', 'AzureCredential')]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Azure')]
-    [System.Management.Automation.PSObject]
-    # The credentials, account, tenant, and subscription used for communication with Azure.
-    ${DefaultProfile},
+        [Parameter()]
+        [Alias('AzureRMContext', 'AzureCredential')]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Azure')]
+        [System.Management.Automation.PSObject]
+        # The credentials, account, tenant, and subscription used for communication with Azure.
+        ${DefaultProfile},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.SwitchParameter]
-    # Wait for .NET debugger to attach
-    ${Break},
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.SwitchParameter]
+        # Wait for .NET debugger to attach
+        ${Break},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
-    # SendAsync Pipeline Steps to be appended to the front of the pipeline
-    ${HttpPipelineAppend},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
+        # SendAsync Pipeline Steps to be appended to the front of the pipeline
+        ${HttpPipelineAppend},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
-    # SendAsync Pipeline Steps to be prepended to the front of the pipeline
-    ${HttpPipelinePrepend},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
+        # SendAsync Pipeline Steps to be prepended to the front of the pipeline
+        ${HttpPipelinePrepend},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Uri]
-    # The URI for the proxy server to use
-    ${Proxy},
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Uri]
+        # The URI for the proxy server to use
+        ${Proxy},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.PSCredential]
-    # Credentials for a proxy server to use for the remote call
-    ${ProxyCredential},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.PSCredential]
+        # Credentials for a proxy server to use for the remote call
+        ${ProxyCredential},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.SwitchParameter]
-    # Use the default credentials for the proxy
-    ${ProxyUseDefaultCredentials}
-)
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.SwitchParameter]
+        # Use the default credentials for the proxy
+        ${ProxyUseDefaultCredentials}
+    )
 
-process {
-    if(-Not $PSBoundParameters.ContainsKey('XmsAadUserToken')){
-        $PSBoundParameters['XmsAadUserToken'] = "Bearer " + (Get-AzAccessToken).Token
+    process {
+        $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
+        Az.AppComplianceAutomation.internal\Get-AzAppComplianceAutomationReport @PSBoundParameters
     }
-    Az.AppComplianceAutomation.internal\Get-AzAppComplianceAutomationReport @PSBoundParameters
-}
 }

@@ -14,14 +14,14 @@ Update an exiting AppComplianceAutomation report.
 
 ### UpdateExpanded (Default)
 ```
-Update-AzAcatReport -Name <String> [-OfferGuid <String>] [-Resources <IResourceMetadata[]>]
+Update-AzAcatReport -Name <String> [-OfferGuid <String>] [-Resource <IResourceMetadata[]>]
  [-TimeZone <String>] [-TriggerTime <DateTime>] [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm]
  [-WhatIf] [<CommonParameters>]
 ```
 
 ### Update
 ```
-Update-AzAcatReport -Name <String> -Parameter <IReportResource> [-DefaultProfile <PSObject>] [-AsJob]
+Update-AzAcatReport -Name <String> -Parameter <IReportResourcePatch> [-DefaultProfile <PSObject>] [-AsJob]
  [-NoWait] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
@@ -134,7 +134,7 @@ A class represent a AppComplianceAutomation report resource update properties.
 To construct, see NOTES section for PARAMETER properties and create a hash table.
 
 ```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource
+Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResourcePatch
 Parameter Sets: Update
 Aliases:
 
@@ -145,10 +145,9 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -Resources
+### -Resource
 List of resource data.
 To construct, see NOTES section for RESOURCE properties and create a hash table.
-To construct, see NOTES section for RESOURCES properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]
@@ -228,7 +227,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource
+### Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResourcePatch
 
 ## OUTPUTS
 
@@ -243,28 +242,22 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-`PARAMETER <IReportResource>`: A class represent a AppComplianceAutomation report resource update properties.
-  - `Resource <IResourceMetadata[]>`: List of resource data.
+`PARAMETER <IReportResourcePatch>`: A class represent a AppComplianceAutomation report resource update properties.
+  - `[M365FailedCount <Int32?>]`: The count of all failed full automation control.
+  - `[M365ManualCount <Int32?>]`: The count of all manual control.
+  - `[M365PassedCount <Int32?>]`: The count of all passed full automation control.
+  - `[OfferGuid <String>]`: Report offer Guid.
+  - `[Resource <IResourceMetadata[]>]`: List of resource data.
     - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
     - `[ResourceKind <String>]`: Resource kind.
     - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.
     - `[ResourceType <String>]`: Resource type. e.g. "Microsoft.Compute/virtualMachines"
     - `[Tag <IResourceMetadataTags>]`: Resource's tag type.
       - `[(Any) <String>]`: This indicates any property can be added to this object.
-  - `TimeZone <String>`: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.         An example of valid timezone id is "Pacific Standard Time".
-  - `TriggerTime <DateTime>`: Report collection trigger time.
-  - `[SystemDataCreatedAt <DateTime?>]`: The timestamp of resource creation (UTC).
-  - `[SystemDataCreatedBy <String>]`: The identity that created the resource.
-  - `[SystemDataCreatedByType <CreatedByType?>]`: The type of identity that created the resource.
-  - `[SystemDataLastModifiedAt <DateTime?>]`: The timestamp of resource last modification (UTC)
-  - `[SystemDataLastModifiedBy <String>]`: The identity that last modified the resource.
-  - `[SystemDataLastModifiedByType <CreatedByType?>]`: The type of identity that last modified the resource.
-  - `[M365FailedCount <Int32?>]`: The count of all failed full automation control.
-  - `[M365ManualCount <Int32?>]`: The count of all manual control.
-  - `[M365PassedCount <Int32?>]`: The count of all passed full automation control.
-  - `[OfferGuid <String>]`: Report offer Guid.
+  - `[TimeZone <String>]`: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.         An example of valid timezone id is "Pacific Standard Time".
+  - `[TriggerTime <DateTime?>]`: Report collection trigger time.
 
-`RESOURCES <IResourceMetadata[]>`: List of resource data. To construct, see NOTES section for RESOURCE properties and create a hash table.
+`RESOURCE <IResourceMetadata[]>`: List of resource data.
   - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
   - `[ResourceKind <String>]`: Resource kind.
   - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.

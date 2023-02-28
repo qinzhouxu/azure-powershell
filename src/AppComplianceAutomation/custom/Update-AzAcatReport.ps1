@@ -26,111 +26,117 @@ Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Pre
 https://learn.microsoft.com/powershell/module/az.appComplianceAutomation/update-azacatreport
 #>
 function Update-AzAcatReport {
-[OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource])]
-[CmdletBinding(DefaultParameterSetName='UpdateExpanded', PositionalBinding=$false, SupportsShouldProcess, ConfirmImpact='Medium')]
-param(
-    [Parameter(ParameterSetName='Update', Mandatory)]
-    [Parameter(ParameterSetName='UpdateExpanded', Mandatory)]
-    [Alias('ReportName')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
-    [System.String]
-    # Report Name.
-    ${Name},
+    [OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource])]
+    [CmdletBinding(DefaultParameterSetName = 'UpdateExpanded', PositionalBinding = $false, SupportsShouldProcess, ConfirmImpact = 'Medium')]
+    param(
+        [Parameter(ParameterSetName = 'Update', Mandatory)]
+        [Parameter(ParameterSetName = 'UpdateExpanded', Mandatory)]
+        [Alias('ReportName')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
+        [System.String]
+        # Report Name.
+        ${Name},
 
-    [Parameter(ParameterSetName='Update', Mandatory, ValueFromPipeline)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource]
-    # A class represent a AppComplianceAutomation report resource update properties.
-    # To construct, see NOTES section for PARAMETER properties and create a hash table.
-    ${Parameter},
+        [Parameter(ParameterSetName = 'Update', Mandatory, ValueFromPipeline)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource]
+        # A class represent a AppComplianceAutomation report resource update properties.
+        # To construct, see NOTES section for PARAMETER properties and create a hash table.
+        ${Parameter},
 
-    [Parameter(ParameterSetName='UpdateExpanded')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [System.String]
-    # Report offer Guid.
-    ${OfferGuid},
+        [Parameter(ParameterSetName = 'UpdateExpanded')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [System.String]
+        # Report offer Guid.
+        ${OfferGuid},
 
-    [Parameter(ParameterSetName='UpdateExpanded')]
-    [AllowEmptyCollection()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
-    # List of resource data.
-    # To construct, see NOTES section for RESOURCE properties and create a hash table.
-    ${Resources},
+        [Parameter(ParameterSetName = 'UpdateExpanded')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
+        # List of resource data.
+        # To construct, see NOTES section for RESOURCE properties and create a hash table.
+        ${Resource},
 
-    [Parameter(ParameterSetName='UpdateExpanded')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [System.String]
-    # Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.An example of valid timezone id is "Pacific Standard Time".
-    ${TimeZone},
+        [Parameter(ParameterSetName = 'UpdateExpanded')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [System.String]
+        # Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.An example of valid timezone id is "Pacific Standard Time".
+        ${TimeZone},
 
-    [Parameter(ParameterSetName='UpdateExpanded')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
-    [System.DateTime]
-    # Report collection trigger time.
-    ${TriggerTime},
+        [Parameter(ParameterSetName = 'UpdateExpanded')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
+        [System.DateTime]
+        # Report collection trigger time.
+        ${TriggerTime},
 
-    [Parameter()]
-    [Alias('AzureRMContext', 'AzureCredential')]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Azure')]
-    [System.Management.Automation.PSObject]
-    # The credentials, account, tenant, and subscription used for communication with Azure.
-    ${DefaultProfile},
+        [Parameter()]
+        [Alias('AzureRMContext', 'AzureCredential')]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Azure')]
+        [System.Management.Automation.PSObject]
+        # The credentials, account, tenant, and subscription used for communication with Azure.
+        ${DefaultProfile},
 
-    [Parameter()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.SwitchParameter]
-    # Run the command as a job
-    ${AsJob},
+        [Parameter()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.SwitchParameter]
+        # Run the command as a job
+        ${AsJob},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.SwitchParameter]
-    # Wait for .NET debugger to attach
-    ${Break},
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.SwitchParameter]
+        # Wait for .NET debugger to attach
+        ${Break},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
-    # SendAsync Pipeline Steps to be appended to the front of the pipeline
-    ${HttpPipelineAppend},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
+        # SendAsync Pipeline Steps to be appended to the front of the pipeline
+        ${HttpPipelineAppend},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
-    # SendAsync Pipeline Steps to be prepended to the front of the pipeline
-    ${HttpPipelinePrepend},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Runtime.SendAsyncStep[]]
+        # SendAsync Pipeline Steps to be prepended to the front of the pipeline
+        ${HttpPipelinePrepend},
 
-    [Parameter()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.SwitchParameter]
-    # Run the command asynchronously
-    ${NoWait},
+        [Parameter()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.SwitchParameter]
+        # Run the command asynchronously
+        ${NoWait},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Uri]
-    # The URI for the proxy server to use
-    ${Proxy},
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Uri]
+        # The URI for the proxy server to use
+        ${Proxy},
 
-    [Parameter(DontShow)]
-    [ValidateNotNull()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.PSCredential]
-    # Credentials for a proxy server to use for the remote call
-    ${ProxyCredential},
+        [Parameter(DontShow)]
+        [ValidateNotNull()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.PSCredential]
+        # Credentials for a proxy server to use for the remote call
+        ${ProxyCredential},
 
-    [Parameter(DontShow)]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
-    [System.Management.Automation.SwitchParameter]
-    # Use the default credentials for the proxy
-    ${ProxyUseDefaultCredentials}
-)
+        [Parameter(DontShow)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Runtime')]
+        [System.Management.Automation.SwitchParameter]
+        # Use the default credentials for the proxy
+        ${ProxyUseDefaultCredentials}
+    )
 
-process {
-    
-}
+    process {
+        if ($PSBoundParameters.ContainsKey("Resource")) {
+            $Token = Get-Token
+            $Subscriptions = Get-Resource-Subscriptions $PSBoundParameters.Resource
+            Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions -XmsAadUserToken $Token
+        }
+
+        $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
+        Az.AppComplianceAutomation.internal\Update-AzAppComplianceAutomationReport @PSBoundParameters
+    }
 }

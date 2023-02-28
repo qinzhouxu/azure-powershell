@@ -13,9 +13,9 @@ Create an in-memory object for WebhookResource.
 ## SYNTAX
 
 ```
-New-AzAcatWebhookResourceObject [-ContentType <String>] [-Disable <Boolean>]
+New-AzAcatWebhookResourceObject [-ContentType <String>] [-Disable]
  [-EnableSslVerification <EnableSslVerification>] [-Events <NotificationEvent[]>] [-PayloadUrl <String>]
- [-Secret <String>] [-TriggerMode <SendAllEvents>] [<CommonParameters>]
+ [-Secret <SecureString>] [-TriggerMode <SendAllEvents>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -66,7 +66,7 @@ Accept wildcard characters: False
 whether to disable webhook
 
 ```yaml
-Type: System.Boolean
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
@@ -127,7 +127,7 @@ webhook secret token.
 If not set, this field value is null; otherwise, please set a string value.
 
 ```yaml
-Type: System.String
+Type: System.Security.SecureString
 Parameter Sets: (All)
 Aliases:
 

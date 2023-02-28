@@ -26,33 +26,32 @@ Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Pre
 https://learn.microsoft.com/powershell/module/az.appComplianceAutomation/new-azacatreportresourceobject
 #>
 function New-AzAcatReportResourceObject {
-[OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource])]
-[CmdletBinding(PositionalBinding=$false)]
-param(
-    [Parameter()]
-    [AllowEmptyCollection()]
-    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
-    # List of resource data.
-    # To construct, see NOTES section for RESOURCE properties and create a hash table.
-    ${Resources},
+    [OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource])]
+    [CmdletBinding(PositionalBinding = $false)]
+    param(
+        [Parameter()]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
+        # List of resource data.
+        # To construct, see NOTES section for RESOURCE properties and create a hash table.
+        ${Resource},
 
-    [Parameter()]
-    [System.String]
-    # Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.An example of valid timezone id is "Pacific Standard Time".
-    ${TimeZone},
+        [Parameter()]
+        [System.String]
+        # Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.An example of valid timezone id is "Pacific Standard Time".
+        ${TimeZone},
 
-    [Parameter()]
-    [System.DateTime]
-    # Report collection trigger time.
-    ${TriggerTime},
+        [Parameter()]
+        [System.DateTime]
+        # Report collection trigger time.
+        ${TriggerTime},
 
-    [Parameter()]
-    [System.String]
-    # Report offer Guid.
-    ${OfferGuid}
-)
+        [Parameter()]
+        [System.String]
+        # Report offer Guid.
+        ${OfferGuid}
+    )
 
-process {
+    process {
     
-}
+    }
 }
