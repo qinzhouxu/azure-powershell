@@ -97,13 +97,7 @@ function Remove-AzAcatWebhook {
     )
 
     process {
-        try {
-            $steppablePipeline.Process($_)
-        }
-        catch {
-
-            throw
-        }
-
+        $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
+        Az.AppComplianceAutomation.internal\Remove-AzAppComplianceAutomationWebhook @PSBoundParameters
     }
 }

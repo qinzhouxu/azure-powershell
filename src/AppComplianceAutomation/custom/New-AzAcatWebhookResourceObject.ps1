@@ -51,7 +51,7 @@ function New-AzAcatWebhookResourceObject {
         [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]]
         # under which event notification should be sent.
-        ${Events},
+        ${Event},
 
         [Parameter()]
         [System.String]

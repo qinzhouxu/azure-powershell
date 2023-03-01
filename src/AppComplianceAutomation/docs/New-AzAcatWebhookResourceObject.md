@@ -14,7 +14,7 @@ Create an in-memory object for WebhookResource.
 
 ```
 New-AzAcatWebhookResourceObject [-ContentType <String>] [-Disable]
- [-EnableSslVerification <EnableSslVerification>] [-Events <NotificationEvent[]>] [-PayloadUrl <String>]
+ [-EnableSslVerification <EnableSslVerification>] [-Event <NotificationEvent[]>] [-PayloadUrl <String>]
  [-Secret <SecureString>] [-TriggerMode <SendAllEvents>] [<CommonParameters>]
 ```
 
@@ -92,7 +92,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Events
+### -Event
 under which event notification should be sent.
 
 ```yaml

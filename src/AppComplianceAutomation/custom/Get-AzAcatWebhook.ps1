@@ -112,6 +112,7 @@ function Get-AzAcatWebhook {
     )
 
     process {
-    
+        $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
+        Az.AppComplianceAutomation.internal\Get-AzAppComplianceAutomationWebhook @PSBoundParameters
     }
 }

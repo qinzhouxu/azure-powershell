@@ -15,7 +15,7 @@ Update an exiting AppComplianceAutomation webhook.
 ### UpdateExpanded (Default)
 ```
 Update-AzAcatWebhook -Name <String> -ReportName <String> [-ContentType <String>] [-Disable]
- [-EnableSslVerification <EnableSslVerification>] [-Events <NotificationEvent[]>] [-PayloadUrl <String>]
+ [-EnableSslVerification <EnableSslVerification>] [-Event <NotificationEvent[]>] [-PayloadUrl <String>]
  [-Secret <SecureString>] [-TriggerMode <SendAllEvents>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
@@ -115,7 +115,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Events
+### -Event
 under which event notification should be sent.
 
 ```yaml

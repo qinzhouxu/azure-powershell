@@ -14,9 +14,9 @@ Create a new AppComplianceAutomation webhook or update an exiting AppComplianceA
 
 ### CreateExpanded (Default)
 ```
-New-AzAcatWebhook -Name <String> -ReportName <String> -PayloadUrl <String> -TriggerMode <SendAllEvents>
+New-AzAcatWebhook -Name <String> -ReportName <String> -PayloadUrl <String> -TriggerMode <String>
  [-ContentType <String>] [-Disable] [-EnableSslVerification <EnableSslVerification>]
- [-Events <NotificationEvent[]>] [-Secret <SecureString>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf]
+ [-Event <NotificationEvent[]>] [-Secret <SecureString>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
 ```
 
@@ -115,7 +115,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Events
+### -Event
 under which event notification should be sent.
 
 ```yaml
@@ -211,7 +211,7 @@ Accept wildcard characters: False
 whether to send notification under any event.
 
 ```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents
+Type: System.String
 Parameter Sets: CreateExpanded
 Aliases:
 

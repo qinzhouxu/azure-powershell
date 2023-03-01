@@ -76,7 +76,7 @@ function Update-AzAcatWebhook {
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]]
         # under which event notification should be sent.
-        ${Events},
+        ${Event},
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
@@ -146,6 +146,43 @@ function Update-AzAcatWebhook {
     )
 
     process {
-    
+        if ($PSBoundParameters.ContainsKey("ContentType")) {
+            $PSBoundParameters.Remove("ContentType")
+        }
+        
+        if (-Not $PSBoundParameters.ContainsKey("EnableSslVerification")) {
+            $PSBoundParameters.Add("EnableSslVerification", "true")
+        }
+
+        if ($PSBoundParameters.Disable -eq $true) {
+            $PSBoundParameters.Add("Status", "Disabled")
+        }
+        else {
+            $PSBoundParameters.Add("Status", "Enabled")
+        }
+        $null = $PSBoundParameters.Remove("Disable")
+
+        if ($PSBoundParameters.TriggerMode -eq "all") {
+            $PSBoundParameters.Add("SendAllEvent", "true")
+            $PSBoundParameters.Add("Event", @())
+        }
+        elseif ($PSBoundParameters.TriggerMode -eq "specify") {
+            $PSBoundParameters.Add("SendAllEvent", "false")
+        }
+        $null = $PSBoundParameters.Remove("TriggerMode")
+
+        if ($PSBoundParameters.ContainsKey("Secret")) {
+            $PSBoundParameters.Add("UpdateWebhookKey", "true")
+
+            $Decoded = ConvertFrom-SecureString -AsPlainText $PSBoundParameters.Secret
+            $PSBoundParameters.Add("WebhookKey", $Decoded)
+            $null = $PSBoundParameters.Remove("Secret")
+        }
+        else {
+            $PSBoundParameters.Add("UpdateWebhookKey", "false")
+        }
+
+        $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
+        Az.AppComplianceAutomation.internal\Update-AzAppComplianceAutomationWebhook @PSBoundParameters
     }
 }
