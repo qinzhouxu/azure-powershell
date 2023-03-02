@@ -30,14 +30,12 @@ function Invoke-AzAcatDownloadReport {
     [CmdletBinding(PositionalBinding = $false, SupportsShouldProcess, ConfirmImpact = 'Medium')]
     param(
         [Parameter(Mandatory)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Report Name.
         ${ReportName},
 
         [Parameter(Mandatory)]
         [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.DownloadType])]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.DownloadType]
         # Indicates the download type.
         ${DownloadType},
@@ -113,6 +111,36 @@ function Invoke-AzAcatDownloadReport {
     )
 
     process {
-    
+        $Token = Get-Token
+        $Snapshot = Az.AppComplianceAutomation.internal\Get-AzAppComplianceAutomationSnapshot `
+            -ReportName $PSBoundParameters.ReportName `
+            -Select "snapshotName" -SkipToken "0" -Top 1 -XmsAadUserToken $Token
+        
+        if ($Snapshot.Count -le 0) {
+            Write-Error "Your report is being generated. It might take up to 24 hours to generate your first report."
+        }
+        $SnapshotName = $Snapshot[0].SnapshotName
+
+        $Content = Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationDownloadSnapshot `
+            -ReportName $PSBoundParameters.ReportName -SnapshotName $SnapshotName `
+            -DownloadType $PSBoundParameters.DownloadType -XmsAadUserToken $Token
+
+        $SavePath = Join-Path $PSBoundParameters.Path -ChildPath $PSBoundParameters.Name
+
+        if ($PSBoundParameters.DownloadType -eq "ResourceList") {
+            $SavePath += ".csv"
+            $Content.ResourceList | Export-Csv -Path $SavePath -NoTypeInformation
+        }
+
+        if ($PSBoundParameters.DownloadType -eq "ComplianceReport") {
+            $SavePath += ".csv"
+            $Content.ComplianceReport | Export-Csv -Path $SavePath -NoTypeInformation
+        }
+
+        if ($PSBoundParameters.DownloadType -eq "CompliancePdfReport") {
+            $SavePath += ".pdf"
+            $Url = $Content.CompliancePdfReportSasUri
+            Invoke-WebRequest $Url -OutFile $SavePath
+        }
     }
 }

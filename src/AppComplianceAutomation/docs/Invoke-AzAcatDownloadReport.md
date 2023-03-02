@@ -13,7 +13,7 @@ Download compliance needs, like: Compliance Report, Resource List.
 ## SYNTAX
 
 ```
-Invoke-AzAcatDownloadReport -ReportName <String> -DownloadType <DownloadType> -Name <String> -Path <String>
+Invoke-AzAcatDownloadReport -DownloadType <DownloadType> -Name <String> -Path <String> -ReportName <String>
  [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
