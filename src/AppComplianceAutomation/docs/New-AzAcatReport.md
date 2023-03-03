@@ -243,15 +243,6 @@ To create the parameters described below, construct a hash table containing the 
 
 
 `PARAMETER <IReportResource>`: A class represent an AppComplianceAutomation report resource.
-  - `Resource <IResourceMetadata[]>`: List of resource data.
-    - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
-    - `[ResourceKind <String>]`: Resource kind.
-    - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.
-    - `[ResourceType <String>]`: Resource type. e.g. "Microsoft.Compute/virtualMachines"
-    - `[Tag <IResourceMetadataTags>]`: Resource's tag type.
-      - `[(Any) <String>]`: This indicates any property can be added to this object.
-  - `TimeZone <String>`: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.         An example of valid timezone id is "Pacific Standard Time".
-  - `TriggerTime <DateTime>`: Report collection trigger time.
   - `[SystemDataCreatedAt <DateTime?>]`: The timestamp of resource creation (UTC).
   - `[SystemDataCreatedBy <String>]`: The identity that created the resource.
   - `[SystemDataCreatedByType <CreatedByType?>]`: The type of identity that created the resource.
@@ -261,10 +252,21 @@ To create the parameters described below, construct a hash table containing the 
   - `[M365FailedCount <Int32?>]`: The count of all failed full automation control.
   - `[M365ManualCount <Int32?>]`: The count of all manual control.
   - `[M365PassedCount <Int32?>]`: The count of all passed full automation control.
-  - `[OfferGuid <String>]`: Report offer Guid.
+  - `[OfferGuid <String>]`: A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
+  - `[Resource <IResourceMetadata[]>]`: List of resource data.
+    - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
+    - `[AccountId <String>]`: Account Id. For example - the AWS account id.
+    - `[ResourceKind <String>]`: Resource kind.
+    - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.
+    - `[ResourceType <String>]`: Resource type. e.g. "Microsoft.Compute/virtualMachines"
+    - `[Tag <IResourceMetadataTags>]`: Resource's tag type.
+      - `[(Any) <String>]`: This indicates any property can be added to this object.
+  - `[TimeZone <String>]`: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.         An example of valid timezone id is "Pacific Standard Time".
+  - `[TriggerTime <DateTime?>]`: Report collection trigger time.
 
 `RESOURCE <IResourceMetadata[]>`: List of resource data.
   - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
+  - `[AccountId <String>]`: Account Id. For example - the AWS account id.
   - `[ResourceKind <String>]`: Resource kind.
   - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.
   - `[ResourceType <String>]`: Resource type. e.g. "Microsoft.Compute/virtualMachines"

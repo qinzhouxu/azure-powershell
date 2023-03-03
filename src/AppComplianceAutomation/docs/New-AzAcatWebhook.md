@@ -274,17 +274,18 @@ To create the parameters described below, construct a hash table containing the 
 
 
 `PARAMETER <IWebhookResource>`: A class represent an AppComplianceAutomation webhook resource.
-  - `EnableSslVerification <EnableSslVerification>`: whether to enable ssl verification
-  - `Event <NotificationEvent[]>`: under which event notification should be sent.
-  - `PayloadUrl <String>`: webhook payload url
-  - `SendAllEvent <SendAllEvents>`: whether to send notification under any event.
-  - `Status <WebhookStatus>`: Webhook status.
   - `[SystemDataCreatedAt <DateTime?>]`: The timestamp of resource creation (UTC).
   - `[SystemDataCreatedBy <String>]`: The identity that created the resource.
   - `[SystemDataCreatedByType <CreatedByType?>]`: The type of identity that created the resource.
   - `[SystemDataLastModifiedAt <DateTime?>]`: The timestamp of resource last modification (UTC)
   - `[SystemDataLastModifiedBy <String>]`: The identity that last modified the resource.
   - `[SystemDataLastModifiedByType <CreatedByType?>]`: The type of identity that last modified the resource.
+  - `[ContentType <ContentType?>]`: content type
+  - `[EnableSslVerification <EnableSslVerification?>]`: whether to enable ssl verification
+  - `[Event <NotificationEvent[]>]`: under which event notification should be sent.
+  - `[PayloadUrl <String>]`: webhook payload url
+  - `[SendAllEvent <SendAllEvents?>]`: whether to send notification under any event.
+  - `[Status <WebhookStatus?>]`: Webhook status.
   - `[UpdateWebhookKey <UpdateWebhookKey?>]`: whether to update webhookKey.
   - `[WebhookKey <String>]`: webhook secret token. If not set, this field value is null; otherwise, please set a string value.
 

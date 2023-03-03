@@ -127,6 +127,7 @@ To create the parameters described below, construct a hash table containing the 
 
 `RESOURCE <IResourceMetadata[]>`: List of resource data.
   - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
+  - `[AccountId <String>]`: Account Id. For example - the AWS account id.
   - `[ResourceKind <String>]`: Resource kind.
   - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.
   - `[ResourceType <String>]`: Resource type. e.g. "Microsoft.Compute/virtualMachines"
