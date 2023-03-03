@@ -14,7 +14,7 @@ Create a new AppComplianceAutomation webhook or update an exiting AppComplianceA
 
 ### CreateExpanded (Default)
 ```
-New-AzAcatWebhook -Name <String> -ReportName <String> -PayloadUrl <String> -TriggerMode <String>
+New-AzAcatWebhook -Name <String> -PayloadUrl <String> -ReportName <String> -TriggerMode <String>
  [-ContentType <String>] [-Disable] [-EnableSslVerification <EnableSslVerification>]
  [-Event <NotificationEvent[]>] [-Secret <SecureString>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf]
  [<CommonParameters>]
@@ -22,7 +22,7 @@ New-AzAcatWebhook -Name <String> -ReportName <String> -PayloadUrl <String> -Trig
 
 ### Create
 ```
-New-AzAcatWebhook -Name <String> -ReportName <String> -Parameter <IWebhookResource>
+New-AzAcatWebhook -Name <String> -Parameter <IWebhookResource> -ReportName <String>
  [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 

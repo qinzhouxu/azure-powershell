@@ -32,39 +32,33 @@ function Update-AzAcatReport {
         [Parameter(ParameterSetName = 'Update', Mandatory)]
         [Parameter(ParameterSetName = 'UpdateExpanded', Mandatory)]
         [Alias('ReportName')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Report Name.
         ${Name},
 
         [Parameter(ParameterSetName = 'Update', Mandatory, ValueFromPipeline)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource]
         # A class represent a AppComplianceAutomation report resource update properties.
         # To construct, see NOTES section for PARAMETER properties and create a hash table.
         ${Parameter},
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.String]
         # Report offer Guid.
         ${OfferGuid},
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
         # List of resource data.
         # To construct, see NOTES section for RESOURCE properties and create a hash table.
         ${Resource},
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.String]
         # Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.An example of valid timezone id is "Pacific Standard Time".
         ${TimeZone},
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.DateTime]
         # Report collection trigger time.
         ${TriggerTime},
@@ -132,7 +126,8 @@ function Update-AzAcatReport {
     process {
         if ($PSBoundParameters.ContainsKey("Resource")) {
             $Token = Get-Token
-            $Subscriptions = Get-Resource-Subscriptions $PSBoundParameters.Resource
+            $ResourceIds = Get-ResourceId-Array $Resource
+            $Subscriptions = Get-Resource-Subscriptions $ResourceIds
             Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions -XmsAadUserToken $Token
         }
 

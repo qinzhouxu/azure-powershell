@@ -31,7 +31,6 @@ function Remove-AzAcatReport {
     param(
         [Parameter(Mandatory)]
         [Alias('ReportName')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Report Name.
         ${Name},

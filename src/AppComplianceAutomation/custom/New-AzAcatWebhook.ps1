@@ -32,20 +32,17 @@ function New-AzAcatWebhook {
         [Parameter(ParameterSetName = 'Create', Mandatory)]
         [Parameter(ParameterSetName = 'CreateExpanded', Mandatory)]
         [Alias('WebhookName')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Webhook Name.
         ${Name},
 
         [Parameter(ParameterSetName = 'Create', Mandatory)]
         [Parameter(ParameterSetName = 'CreateExpanded', Mandatory)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Report Name.
         ${ReportName},
 
         [Parameter(ParameterSetName = 'Create', Mandatory, ValueFromPipeline)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource]
         # A class represent an AppComplianceAutomation webhook resource.
         # To construct, see NOTES section for PARAMETER properties and create a hash table.
@@ -53,7 +50,6 @@ function New-AzAcatWebhook {
 
         [Parameter(ParameterSetName = 'CreateExpanded')]
         [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification])]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification]
         # whether to enable ssl verification
         ${EnableSslVerification},
@@ -71,25 +67,21 @@ function New-AzAcatWebhook {
         [Parameter(ParameterSetName = 'CreateExpanded')]
         [AllowEmptyCollection()]
         [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]]
         # under which event notification should be sent.
         ${Event},
 
         [Parameter(ParameterSetName = 'CreateExpanded', Mandatory)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.String]
         # webhook payload url
         ${PayloadUrl},
 
         [Parameter(ParameterSetName = 'CreateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.String]
         # content type
         ${ContentType},
 
         [Parameter(ParameterSetName = 'CreateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.Security.SecureString]
         # webhook secret token.
         # If not set, this field value is null; otherwise, please set a string value.
@@ -172,7 +164,7 @@ function New-AzAcatWebhook {
         if ($PSBoundParameters.ContainsKey("Secret")) {
             $PSBoundParameters.Add("UpdateWebhookKey", "true")
 
-            $Decoded = ConvertFrom-SecureString -AsPlainText $PSBoundParameters.Secret
+            $Decoded = ConvertFrom-SecureString -AsPlainText $Secret
             $PSBoundParameters.Add("WebhookKey", $Decoded)
             $null = $PSBoundParameters.Remove("Secret")
         }

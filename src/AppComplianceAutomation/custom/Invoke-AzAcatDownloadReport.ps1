@@ -113,7 +113,7 @@ function Invoke-AzAcatDownloadReport {
     process {
         $Token = Get-Token
         $Snapshot = Az.AppComplianceAutomation.internal\Get-AzAppComplianceAutomationSnapshot `
-            -ReportName $PSBoundParameters.ReportName `
+            -ReportName $ReportName `
             -Select "snapshotName" -SkipToken "0" -Top 1 -XmsAadUserToken $Token
         
         if ($Snapshot.Count -le 0) {
@@ -122,22 +122,22 @@ function Invoke-AzAcatDownloadReport {
         $SnapshotName = $Snapshot[0].SnapshotName
 
         $Content = Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationDownloadSnapshot `
-            -ReportName $PSBoundParameters.ReportName -SnapshotName $SnapshotName `
-            -DownloadType $PSBoundParameters.DownloadType -XmsAadUserToken $Token
+            -ReportName $ReportName -SnapshotName $SnapshotName `
+            -DownloadType $DownloadType -XmsAadUserToken $Token
 
-        $SavePath = Join-Path $PSBoundParameters.Path -ChildPath $PSBoundParameters.Name
+        $SavePath = Join-Path $Path -ChildPath $Name
 
-        if ($PSBoundParameters.DownloadType -eq "ResourceList") {
+        if ($DownloadType -eq "ResourceList") {
             $SavePath += ".csv"
             $Content.ResourceList | Export-Csv -Path $SavePath -NoTypeInformation
         }
 
-        if ($PSBoundParameters.DownloadType -eq "ComplianceReport") {
+        if ($DownloadType -eq "ComplianceReport") {
             $SavePath += ".csv"
             $Content.ComplianceReport | Export-Csv -Path $SavePath -NoTypeInformation
         }
 
-        if ($PSBoundParameters.DownloadType -eq "CompliancePdfReport") {
+        if ($DownloadType -eq "CompliancePdfReport") {
             $SavePath += ".pdf"
             $Url = $Content.CompliancePdfReportSasUri
             Invoke-WebRequest $Url -OutFile $SavePath

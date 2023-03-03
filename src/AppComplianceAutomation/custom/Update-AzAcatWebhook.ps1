@@ -32,20 +32,17 @@ function Update-AzAcatWebhook {
         [Parameter(ParameterSetName = 'Update', Mandatory)]
         [Parameter(ParameterSetName = 'UpdateExpanded', Mandatory)]
         [Alias('WebhookName')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Webhook Name.
         ${Name},
 
         [Parameter(ParameterSetName = 'Update', Mandatory)]
         [Parameter(ParameterSetName = 'UpdateExpanded', Mandatory)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Report Name.
         ${ReportName},
 
         [Parameter(ParameterSetName = 'Update', Mandatory, ValueFromPipeline)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IWebhookResource]
         # A class represent a AppComplianceAutomation webhook resource update properties.
         # To construct, see NOTES section for PARAMETER properties and create a hash table.
@@ -53,7 +50,6 @@ function Update-AzAcatWebhook {
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
         [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification])]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.EnableSslVerification]
         # whether to enable ssl verification
         ${EnableSslVerification},
@@ -65,7 +61,6 @@ function Update-AzAcatWebhook {
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
         [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents])]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.SendAllEvents]
         # whether to send notification under any event.
         ${TriggerMode},
@@ -73,25 +68,21 @@ function Update-AzAcatWebhook {
         [Parameter(ParameterSetName = 'UpdateExpanded')]
         [AllowEmptyCollection()]
         [ArgumentCompleter([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent])]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Support.NotificationEvent[]]
         # under which event notification should be sent.
         ${Event},
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.String]
         # webhook payload url
         ${PayloadUrl},
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.String]
         # content type
         ${ContentType},
 
         [Parameter(ParameterSetName = 'UpdateExpanded')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.Security.SecureString]
         # webhook secret token.
         # If not set, this field value is null; otherwise, please set a string value.
@@ -174,7 +165,7 @@ function Update-AzAcatWebhook {
         if ($PSBoundParameters.ContainsKey("Secret")) {
             $PSBoundParameters.Add("UpdateWebhookKey", "true")
 
-            $Decoded = ConvertFrom-SecureString -AsPlainText $PSBoundParameters.Secret
+            $Decoded = ConvertFrom-SecureString -AsPlainText $Secret
             $PSBoundParameters.Add("WebhookKey", $Decoded)
             $null = $PSBoundParameters.Remove("Secret")
         }

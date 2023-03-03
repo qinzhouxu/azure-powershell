@@ -31,13 +31,11 @@ function Remove-AzAcatWebhook {
     param(
         [Parameter(Mandatory)]
         [Alias('WebhookName')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Webhook Name.
         ${Name},
 
         [Parameter(Mandatory)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Report Name.
         ${ReportName},

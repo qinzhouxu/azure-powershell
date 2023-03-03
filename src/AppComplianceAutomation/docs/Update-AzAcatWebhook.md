@@ -22,7 +22,7 @@ Update-AzAcatWebhook -Name <String> -ReportName <String> [-ContentType <String>]
 
 ### Update
 ```
-Update-AzAcatWebhook -Name <String> -ReportName <String> -Parameter <IWebhookResource>
+Update-AzAcatWebhook -Name <String> -Parameter <IWebhookResource> -ReportName <String>
  [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 

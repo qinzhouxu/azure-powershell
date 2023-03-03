@@ -29,7 +29,6 @@ function Start-AzAcatQuickEvaluation {
     param(
         [Parameter(Mandatory)]
         [AllowEmptyCollection()]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Body')]
         [System.String[]]
         # List of resource ids to be evaluated
         ${Resources},
@@ -95,6 +94,10 @@ function Start-AzAcatQuickEvaluation {
     )
 
     process {
-    
+        $Token = Get-Token
+        $Subscriptions = Get-Resource-Subscriptions $Resources
+
+        Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions -XmsAadUserToken $Token
+        Az.AppComplianceAutomation.internal\Start-AzAppComplianceAutomationEvaluation -ResourceId $Resources -XmsAadUserToken $Token
     }
 }

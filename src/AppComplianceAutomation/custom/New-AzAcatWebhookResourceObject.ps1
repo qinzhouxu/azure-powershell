@@ -96,7 +96,7 @@ function New-AzAcatWebhookResourceObject {
 
         if ($PSBoundParameters.ContainsKey("Secret")) {
             $Object.UpdateWebhookKey = "true"
-            $Decoded = ConvertFrom-SecureString -AsPlainText $PSBoundParameters.Secret
+            $Decoded = ConvertFrom-SecureString -AsPlainText $Secret
             $Object.WebhookKey = $Decoded
         }
         else {

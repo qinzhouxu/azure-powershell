@@ -31,13 +31,11 @@ function Get-AzAcatReport {
     param(
         [Parameter(ParameterSetName = 'Get', Mandatory)]
         [Alias('ReportName')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Report Name.
         ${Name},
 
         [Parameter(ParameterSetName = 'List')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
         [System.String]
         # OData Select statement.
         # Limits the properties on each entry to just those requested, e.g.
@@ -45,13 +43,11 @@ function Get-AzAcatReport {
         ${Select},
 
         [Parameter(ParameterSetName = 'List')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
         [System.String]
         # Skip over when retrieving results.
         ${SkipToken},
 
         [Parameter(ParameterSetName = 'List')]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Query')]
         [System.Int32]
         # Number of elements to return when retrieving results.
         ${Top},

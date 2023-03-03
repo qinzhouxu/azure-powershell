@@ -1,14 +1,28 @@
-function Get-Resource-Subscriptions {
+function Get-ResourceId-Array {
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.DoNotExportAttribute()]
     param(
         [Parameter(Mandatory)]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
         $Resources
     )
+    $Result = [System.Collections.Generic.List[object]]::new()
+    foreach ($Resource in $Resources) {
+        $Result.Add($Resource.ResourceId)
+    }
+    return $Result.ToArray()
+}
+
+function Get-Resource-Subscriptions {
+    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.DoNotExportAttribute()]
+    param(
+        [Parameter(Mandatory)]
+        [string[]]
+        $Resources
+    )
     $SubscriptionSet = [Collections.Generic.HashSet[string]]@()
     foreach ($Resource in $Resources) {
         try {
-            $Strs = $Resource.ResourceId.Split("/")
+            $Strs = $Resource.Split("/")
             if ($Strs.Count -lt 3) {
                 Write-Error "Please input valid resource ids"
             }

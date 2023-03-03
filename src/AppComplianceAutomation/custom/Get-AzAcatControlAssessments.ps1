@@ -28,13 +28,11 @@ function Get-AzAcatControlAssessments {
     [CmdletBinding(PositionalBinding = $false)]
     param(
         [Parameter(Mandatory)]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Report Name.
         ${ReportName},
 
         [Parameter()]
-        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Category('Path')]
         [System.String]
         # Compliance Status.
         ${ComplianceStatus},
@@ -90,7 +88,7 @@ function Get-AzAcatControlAssessments {
     process {
         $Token = Get-Token
         $Snapshot = Az.AppComplianceAutomation.internal\Get-AzAppComplianceAutomationSnapshot `
-            -ReportName $PSBoundParameters.ReportName `
+            -ReportName $ReportName `
             -SkipToken "0" -Top 1 -XmsAadUserToken $Token
         
         if ($Snapshot.Count -le 0) {
@@ -100,7 +98,6 @@ function Get-AzAcatControlAssessments {
         $Categories = $Snapshot[0].ComplianceResult[0].Category
 
         if ($PSBoundParameters.ContainsKey("ComplianceStatus")) {
-            $ComplianceStatus = $PSBoundParameters.ComplianceStatus
             Get-FilteredControlAssessments -Categories $Categories -ComplianceStatus $ComplianceStatus
         }
         else {
