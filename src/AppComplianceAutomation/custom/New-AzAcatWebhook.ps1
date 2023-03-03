@@ -164,7 +164,7 @@ function New-AzAcatWebhook {
             $PSBoundParameters.Add("SendAllEvent", "true")
             $PSBoundParameters.Add("Event", @())
         }
-        elseif ($PSBoundParameters.TriggerMode -eq "specify") {
+        else {
             $PSBoundParameters.Add("SendAllEvent", "false")
         }
         $null = $PSBoundParameters.Remove("TriggerMode")

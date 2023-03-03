@@ -24,6 +24,7 @@ Get the AppComplianceAutomation report's control assessments.
 https://learn.microsoft.com/powershell/module/az.appComplianceAutomation/get-azacatcontrolassessments
 #>
 function Get-AzAcatControlAssessments {
+    [OutputType([Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.ICategory[]])]
     [CmdletBinding(PositionalBinding = $false)]
     param(
         [Parameter(Mandatory)]
@@ -100,46 +101,10 @@ function Get-AzAcatControlAssessments {
 
         if ($PSBoundParameters.ContainsKey("ComplianceStatus")) {
             $ComplianceStatus = $PSBoundParameters.ComplianceStatus
-
-            $Results = [System.Collections.Generic.List[object]]::new()
-            foreach ($Category in $Categories) {
-
-                $FilteredFamilies = [System.Collections.Generic.List[object]]::new()
-                foreach ($Family in $Category.ControlFamily) {
-
-                    $FilteredControls = [System.Collections.Generic.List[object]]::new()
-                    foreach ($Control in $Family.Control) {
-
-                        if ($Control.Status -eq $ComplianceStatus) {
-                            $FilteredControls.Add($Control)
-                        }
-                    }
-
-                    $NewFamily = @{
-                        Name = $Family.Name
-                        Status = $Family.Status
-                        Control = $FilteredControls
-                    }
-                    $NewFamily.Control = $FilteredControls.ToArray()
-                    if ($FilteredControls.Count) {
-                        $FilteredFamilies.Add($NewFamily)
-                    }
-                }
-
-                $NewCategory = @{
-                    Name = $Category.Name
-                    Status = $Category.Status
-                    ControlFamily = $FilteredFamilies
-                }
-                $NewCategory.ControlFamily = $FilteredFamilies.ToArray()
-                if ($FilteredFamilies.Count) {
-                    $Results.Add($NewCategory)
-                }
-            }
-            $Results | ConvertTo-Json -Depth 4
+            Get-FilteredControlAssessments -Categories $Categories -ComplianceStatus $ComplianceStatus
         }
         else {
-            $Categories | ConvertTo-Json -Depth 4
+            $Categories
         }
     }
 }

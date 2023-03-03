@@ -52,6 +52,31 @@ function New-AzAcatReportResourceObject {
     )
 
     process {
-    
+        $Object = @{}
+
+        if ($PSBoundParameters.ContainsKey("Resource")) {
+            $Object.Resource = $Resource
+        }
+
+        if ($PSBoundParameters.ContainsKey("TimeZone")) {
+            $Object.TimeZone = $TimeZone
+        }
+        else {
+            $TimeZone = (Get-TimeZone).StandardName
+            $Object.TimeZone = $TimeZone
+        }
+
+        if ($PSBoundParameters.ContainsKey("TriggerTime")) {
+            $Object.TriggerTime = $TriggerTime
+        }
+        else {
+            $TriggerTime = Get-Nearest-Time
+            $Object.TriggerTime = $TriggerTime
+        }
+
+        if ($PSBoundParameters.ContainsKey("OfferGuid")) {
+            $Object.OfferGuid = $OfferGuid
+        }
+        return [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.ReportResource]::DeserializeFromDictionary($Object)
     }
 }

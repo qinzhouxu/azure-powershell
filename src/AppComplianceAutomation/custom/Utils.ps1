@@ -47,3 +47,53 @@ function Add-Custom-Header {
     }
     return $PSBoundParameters
 }
+
+function Get-FilteredControlAssessments {
+    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.DoNotExportAttribute()]
+    param(
+        [Parameter(Mandatory)]
+        [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.ICategory[]]
+        $Categories,
+
+        [Parameter(Mandatory)]
+        $ComplianceStatus
+    )
+
+    $Results = [System.Collections.Generic.List[object]]::new()
+    foreach ($Category in $Categories) {
+
+        $FilteredFamilies = [System.Collections.Generic.List[object]]::new()
+        foreach ($Family in $Category.ControlFamily) {
+
+            $FilteredControls = [System.Collections.Generic.List[object]]::new()
+            foreach ($Control in $Family.Control) {
+
+                if ($Control.Status -eq $ComplianceStatus) {
+                    $FilteredControls.Add($Control)
+                }
+            }
+
+            $NewFamily = @{
+                Name    = $Family.Name
+                Status  = $Family.Status
+                Control = $FilteredControls
+            }
+            $NewFamily.Control = $FilteredControls.ToArray()
+            if ($FilteredControls.Count) {
+                $FilteredFamilies.Add($NewFamily)
+            }
+        }
+
+        $NewCategory = @{
+            Name          = $Category.Name
+            Status        = $Category.Status
+            ControlFamily = $FilteredFamilies
+        }
+        $NewCategory.ControlFamily = $FilteredFamilies.ToArray()
+        if ($FilteredFamilies.Count) {
+            $DeserializedCategory = [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.Category]::DeserializeFromDictionary($NewCategory)
+            $Results.Add($DeserializedCategory)
+        }
+    }
+    $Results.ToArray()
+}

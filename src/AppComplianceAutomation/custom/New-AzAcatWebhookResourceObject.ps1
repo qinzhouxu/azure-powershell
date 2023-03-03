@@ -71,6 +71,37 @@ function New-AzAcatWebhookResourceObject {
     )
 
     process {
-    
+        $Object = @{}
+        
+        if ($PSBoundParameters.ContainsKey("EnableSslVerification")) {
+            $Object.EnableSslVerification = $EnableSslVerification
+        } else {
+            $Object.EnableSslVerification = "true"
+        }
+
+        if ($PSBoundParameters.Disable -eq $true) {
+            $Object.Status = "Disabled"
+        }
+        else {
+            $Object.Status = "Enabled"
+        }
+
+        if ($PSBoundParameters.TriggerMode -eq "all") {
+            $Object.SendAllEvent = "true"
+            $Object.Event = @()
+        }
+        else {
+            $Object.SendAllEvent = "false"
+        }
+
+        if ($PSBoundParameters.ContainsKey("Secret")) {
+            $Object.UpdateWebhookKey = "true"
+            $Decoded = ConvertFrom-SecureString -AsPlainText $PSBoundParameters.Secret
+            $Object.WebhookKey = $Decoded
+        }
+        else {
+            $Object.UpdateWebhookKey = "false"
+        }
+        return [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.WebhookResource]::DeserializeFromDictionary($Object)
     }
 }
