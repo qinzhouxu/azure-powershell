@@ -11,8 +11,9 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Cmdlets
     {
         partial void overrideOnOk(global::System.Net.Http.HttpResponseMessage responseMessage, global::System.Threading.Tasks.Task<Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.ISnapshotResourceList> response, ref global::System.Threading.Tasks.Task<bool> returnNow)
         {
-            // avoid loop API calls for nextLink
-            _isFirst = false;
+            var result = response.ConfigureAwait(false).GetAwaiter().GetResult();
+            WriteObject(result.Value, true);
+            returnNow = global::System.Threading.Tasks.Task.FromResult(true);
         }
     }
 }

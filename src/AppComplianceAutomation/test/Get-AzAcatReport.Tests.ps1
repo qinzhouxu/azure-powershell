@@ -15,11 +15,13 @@ if(($null -eq $TestName) -or ($TestName -contains 'Get-AzAcatReport'))
 }
 
 Describe 'Get-AzAcatReport' {
-    It 'List' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'List' {
+        $reports = Get-AzAcatReport
+        $reports.Count | Should -BeGreaterOrEqual 1
     }
 
-    It 'Get' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Get' {
+        $report = Get-AzAcatReport -Name $env.reportName
+        $report.Name | Should -Be $env.reportName
     }
 }

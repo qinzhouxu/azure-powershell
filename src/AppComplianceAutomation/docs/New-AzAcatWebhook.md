@@ -273,7 +273,7 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-`PARAMETER <IWebhookResource>`: A class represent an AppComplianceAutomation webhook resource.
+PARAMETER <IWebhookResource>: A class represent an AppComplianceAutomation webhook resource.
   - `[SystemDataCreatedAt <DateTime?>]`: The timestamp of resource creation (UTC).
   - `[SystemDataCreatedBy <String>]`: The identity that created the resource.
   - `[SystemDataCreatedByType <CreatedByType?>]`: The type of identity that created the resource.

@@ -242,7 +242,7 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-`PARAMETER <IReportResource>`: A class represent a AppComplianceAutomation report resource update properties.
+PARAMETER <IReportResource>: A class represent a AppComplianceAutomation report resource update properties.
   - `[SystemDataCreatedAt <DateTime?>]`: The timestamp of resource creation (UTC).
   - `[SystemDataCreatedBy <String>]`: The identity that created the resource.
   - `[SystemDataCreatedByType <CreatedByType?>]`: The type of identity that created the resource.
@@ -264,7 +264,7 @@ To create the parameters described below, construct a hash table containing the 
   - `[TimeZone <String>]`: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.         An example of valid timezone id is "Pacific Standard Time".
   - `[TriggerTime <DateTime?>]`: Report collection trigger time.
 
-`RESOURCE <IResourceMetadata[]>`: List of resource data.
+RESOURCE <IResourceMetadata[]>: List of resource data.
   - `ResourceId <String>`: Resource Id - e.g. "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1".
   - `[AccountId <String>]`: Account Id. For example - the AWS account id.
   - `[ResourceKind <String>]`: Resource kind.
