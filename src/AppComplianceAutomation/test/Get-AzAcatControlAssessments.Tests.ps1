@@ -15,7 +15,8 @@ if(($null -eq $TestName) -or ($TestName -contains 'Get-AzAcatControlAssessments'
 }
 
 Describe 'Get-AzAcatControlAssessments' {
-    It 'List' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'List' {
+        $categories = Get-AzAcatControlAssessments -ReportName $env.GeneratedReportName
+        $categories.Count | Should -BeGreaterOrEqual 1
     }
 }

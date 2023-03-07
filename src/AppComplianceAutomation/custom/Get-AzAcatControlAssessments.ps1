@@ -87,9 +87,12 @@ function Get-AzAcatControlAssessments {
 
     process {
         $Token = Get-Token
+        $RuntimeParams = Get-Runtime-Parameters -PSBoundParameters $PSBoundParameters
+        
         $Snapshot = Az.AppComplianceAutomation.internal\Get-AzAppComplianceAutomationSnapshot `
             -ReportName $ReportName `
-            -SkipToken "0" -Top 1 -XmsAadUserToken $Token
+            -SkipToken "0" -Top 1 -XmsAadUserToken $Token `
+            @RuntimeParams
         
         if ($Snapshot.Count -le 0) {
             Write-Error "Your report is being generated. It might take up to 24 hours to generate your first report."

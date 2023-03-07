@@ -21,7 +21,7 @@ Describe 'Get-AzAcatReport' {
     }
 
     It 'Get' {
-        $report = Get-AzAcatReport -Name $env.reportName
-        $report.Name | Should -Be $env.reportName
+        $report = Get-AzAcatReport -Name $env.GeneratedReportName
+        $report.Name | Should -Be $env.GeneratedReportName
     }
 }

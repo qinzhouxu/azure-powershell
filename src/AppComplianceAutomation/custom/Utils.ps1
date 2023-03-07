@@ -62,6 +62,34 @@ function Add-Custom-Header {
     return $PSBoundParameters
 }
 
+function Get-Runtime-Parameters {
+    [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.DoNotExportAttribute()]
+    param(
+        [Parameter(Mandatory)]
+        $PSBoundParameters
+    )
+    $Object = @{}
+    if ($PSBoundParameters.ContainsKey('XmsAadUserToken')) {
+        $Object['Break'] = $PSBoundParameters.Break
+    }
+    if ($PSBoundParameters.ContainsKey('HttpPipelineAppend')) {
+        $Object['HttpPipelineAppend'] = $PSBoundParameters.HttpPipelineAppend
+    }
+    if ($PSBoundParameters.ContainsKey('HttpPipelinePrepend')) {
+        $Object['HttpPipelinePrepend'] = $PSBoundParameters.HttpPipelinePrepend
+    }
+    if ($PSBoundParameters.ContainsKey('Proxy')) {
+        $Object['Proxy'] = $PSBoundParameters.Proxy
+    }
+    if ($PSBoundParameters.ContainsKey('ProxyCredential')) {
+        $Object['ProxyCredential'] = $PSBoundParameters.ProxyCredential
+    }
+    if ($PSBoundParameters.ContainsKey('ProxyUseDefaultCredentials')) {
+        $Object['ProxyUseDefaultCredentials'] = $PSBoundParameters.ProxyUseDefaultCredentials
+    }
+    return $Object
+}
+
 function Get-FilteredControlAssessments {
     [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.DoNotExportAttribute()]
     param(

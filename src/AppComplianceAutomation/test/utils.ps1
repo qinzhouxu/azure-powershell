@@ -20,7 +20,8 @@ function setupEnv() {
     $env.Tenant = (Get-AzContext).Tenant.Id
     
     # For any resources you created for test, you should add it to $env here.
-    $env.ReportName = "test-report"
+    $env.ReportName = "powershell-test-report-fordelete"
+    $env.GeneratedReportName = "powershell-test-report"
 
     $envFile = 'env.json'
     if ($TestMode -eq 'live') {

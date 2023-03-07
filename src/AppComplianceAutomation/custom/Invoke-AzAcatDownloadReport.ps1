@@ -112,9 +112,12 @@ function Invoke-AzAcatDownloadReport {
 
     process {
         $Token = Get-Token
+        $RuntimeParams = Get-Runtime-Parameters -PSBoundParameters $PSBoundParameters
+
         $Snapshot = Az.AppComplianceAutomation.internal\Get-AzAppComplianceAutomationSnapshot `
             -ReportName $ReportName `
-            -Select "snapshotName" -SkipToken "0" -Top 1 -XmsAadUserToken $Token
+            -Select "snapshotName" -SkipToken "0" -Top 1 -XmsAadUserToken $Token `
+            @RuntimeParams
         
         if ($Snapshot.Count -le 0) {
             Write-Error "Your report is being generated. It might take up to 24 hours to generate your first report."
@@ -123,7 +126,8 @@ function Invoke-AzAcatDownloadReport {
 
         $Content = Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationDownloadSnapshot `
             -ReportName $ReportName -SnapshotName $SnapshotName `
-            -DownloadType $DownloadType -XmsAadUserToken $Token
+            -DownloadType $DownloadType -XmsAadUserToken $Token `
+            @RuntimeParams
 
         $SavePath = Join-Path $Path -ChildPath $Name
 

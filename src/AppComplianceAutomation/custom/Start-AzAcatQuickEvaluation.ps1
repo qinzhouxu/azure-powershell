@@ -96,8 +96,9 @@ function Start-AzAcatQuickEvaluation {
     process {
         $Token = Get-Token
         $Subscriptions = Get-Resource-Subscriptions $Resources
+        $RuntimeParams = Get-Runtime-Parameters -PSBoundParameters $PSBoundParameters
 
-        Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions -XmsAadUserToken $Token
-        Az.AppComplianceAutomation.internal\Start-AzAppComplianceAutomationEvaluation -ResourceId $Resources -XmsAadUserToken $Token
+        Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions -XmsAadUserToken $Token @RuntimeParams
+        Az.AppComplianceAutomation.internal\Start-AzAppComplianceAutomationEvaluation -ResourceId $Resources -XmsAadUserToken $Token @RuntimeParams
     }
 }
