@@ -15,7 +15,8 @@ if(($null -eq $TestName) -or ($TestName -contains 'Start-AzAcatQuickEvaluation')
 }
 
 Describe 'Start-AzAcatQuickEvaluation' {
-    It 'TriggerExpanded' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'TriggerExpanded' {
+        $response = Start-AzAcatQuickEvaluation -Resources @($env.ResourceId)
+        $response.QuickAssessment.Count | Should -BeGreaterOrEqual 1
     }
 }
