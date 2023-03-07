@@ -15,7 +15,9 @@ if(($null -eq $TestName) -or ($TestName -contains 'Remove-AzAcatWebhook'))
 }
 
 Describe 'Remove-AzAcatWebhook' {
-    It 'Delete' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Delete' {
+        New-AzAcatWebhook -Name $env.WebhookName -ReportName $env.GeneratedReportName `
+            -TriggerMode "all" -PayloadUrl $env.PayloadUrl
+        Remove-AzAcatWebhook -Name $env.WebhookName -ReportName $env.GeneratedReportName
     }
 }

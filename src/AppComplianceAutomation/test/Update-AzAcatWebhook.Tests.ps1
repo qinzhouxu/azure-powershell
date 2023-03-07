@@ -15,11 +15,16 @@ if(($null -eq $TestName) -or ($TestName -contains 'Update-AzAcatWebhook'))
 }
 
 Describe 'Update-AzAcatWebhook' {
-    It 'UpdateExpanded' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'UpdateExpanded' {
+        $webhook = Update-AzAcatWebhook -Name $env.PreparedWebhookName -ReportName $env.GeneratedReportName `
+            -TriggerMode "all" -PayloadUrl $env.NewPayloadUrl
+        $webhook.PayloadUrl | Should -Be $env.NewPayloadUrl
     }
 
-    It 'Update' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Update' {
+        $oldWebhook = Get-AzAcatWebhook -Name $env.PreparedWebhookName -ReportName $env.GeneratedReportName
+        $oldWebhook.PayloadUrl = $env.NewPayloadUrl
+        $webhook = $oldWebhook | Update-AzAcatWebhook -Name $env.PreparedWebhookName -ReportName $env.GeneratedReportName
+        $webhook.PayloadUrl | Should -Be $env.NewPayloadUrl
     }
 }

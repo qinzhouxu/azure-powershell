@@ -15,11 +15,13 @@ if(($null -eq $TestName) -or ($TestName -contains 'Get-AzAcatWebhook'))
 }
 
 Describe 'Get-AzAcatWebhook' {
-    It 'List' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'List' {
+        $webhooks = Get-AzAcatWebhook -ReportName $env.GeneratedReportName
+        $webhooks.Count | Should -BeGreaterOrEqual 1
     }
 
-    It 'Get' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Get' {
+        $webhook = Get-AzAcatWebhook -Name $env.PreparedWebhookName -ReportName $env.GeneratedReportName
+        $webhook.Name | Should -Be $env.PreparedWebhookName
     }
 }

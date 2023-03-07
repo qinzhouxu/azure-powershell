@@ -15,11 +15,17 @@ if(($null -eq $TestName) -or ($TestName -contains 'New-AzAcatWebhook'))
 }
 
 Describe 'New-AzAcatWebhook' {
-    It 'CreateExpanded' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'CreateExpanded' {
+        $secret = ConvertTo-SecureString $env.Secret -AsPlainText
+        $webhook = New-AzAcatWebhook -Name $env.WebhookName -ReportName $env.GeneratedReportName `
+            -TriggerMode "all" -PayloadUrl $env.PayloadUrl -Secret $secret
+        $webhook.Name | Should -Be $env.WebhookName
     }
 
-    It 'Create' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Create' {
+        $secret = ConvertTo-SecureString $env.Secret -AsPlainText
+        $param = New-AzAcatWebhookResourceObject -TriggerMode "all" -PayloadUrl $env.PayloadUrl -Secret $secret
+        $webhook = $param | New-AzAcatWebhook -Name $env.WebhookName -ReportName $env.GeneratedReportName
+        $webhook.Name | Should -Be $env.WebhookName
     }
 }

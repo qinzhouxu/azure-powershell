@@ -136,8 +136,8 @@ function New-AzAcatWebhook {
     )
 
     process {
-        if ($PSBoundParameters.ContainsKey("ContentType")) {
-            $PSBoundParameters.Remove("ContentType")
+        if (-Not $PSBoundParameters.ContainsKey("ContentType")) {
+            $PSBoundParameters.Add("ContentType", "application/json")
         }
         
         if (-Not $PSBoundParameters.ContainsKey("EnableSslVerification")) {
@@ -173,6 +173,16 @@ function New-AzAcatWebhook {
         }
 
         $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
-        Az.AppComplianceAutomation.internal\New-AzAppComplianceAutomationWebhook @PSBoundParameters
+        $RuntimeParams = Get-Runtime-Parameters -PSBoundParameters $PSBoundParameters
+        
+        if ($PSBoundParameters.ContainsKey("Parameter")) {
+            $Parameter |
+            Az.AppComplianceAutomation.internal\New-AzAppComplianceAutomationWebhook -Name $Name -ReportName $ReportName `
+                -XmsAadUserToken $PSBoundParameters.XmsAadUserToken `
+                @RuntimeParams
+        }
+        else {
+            Az.AppComplianceAutomation.internal\New-AzAppComplianceAutomationWebhook @PSBoundParameters
+        }
     }
 }

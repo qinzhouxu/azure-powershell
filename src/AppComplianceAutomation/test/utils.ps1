@@ -24,6 +24,11 @@ function setupEnv() {
     $env.GeneratedReportName = "powershell-test-report"
     $env.ResourceId = "/subscriptions/f744fbde-a95f-437e-8fcf-38f9324e3d9c/resourceGroups/github-action-deploy/providers/Microsoft.Storage/storageAccounts/storexahdnmg5xqlduarm"
     $env.TimeZone = "Pacific Standard Time"
+    $env.WebhookName = "test-webhook-fordelete"
+    $env.PreparedWebhookName = "test-webhook"
+    $env.PayloadUrl = "https://a.b.c.com"
+    $env.NewPayloadUrl = "https://a.b.com"
+    $env.Secret = "testSecret"
 
     $envFile = 'env.json'
     if ($TestMode -eq 'live') {

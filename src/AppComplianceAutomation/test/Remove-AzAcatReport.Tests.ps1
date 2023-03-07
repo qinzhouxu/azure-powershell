@@ -15,7 +15,8 @@ if(($null -eq $TestName) -or ($TestName -contains 'Remove-AzAcatReport'))
 }
 
 Describe 'Remove-AzAcatReport' {
-    It 'Delete' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Delete' {
+        New-AzAcatReport -Name $env.ReportName -Resource @(@{ResourceId = $env.ResourceId})
+        Remove-AzAcatReport -Name $env.ReportName
     }
 }
