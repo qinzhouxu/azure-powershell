@@ -15,7 +15,10 @@ if(($null -eq $TestName) -or ($TestName -contains 'New-AzAcatReportResourceObjec
 }
 
 Describe 'New-AzAcatReportResourceObject' {
-    It '__AllParameterSets' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It '__AllParameterSets' {
+        $resourceObj = New-AzAcatReportResourceObject -Resource @(@{ResourceId = $env.ResourceId})
+        $resourceObj.Resource.Count | Should -Be 1
+        $resourceObj.TimeZone | Should -Not -BeNullOrEmpty
+        $resourceObj.TriggerTime | Should -Not -BeNullOrEmpty
     }
 }

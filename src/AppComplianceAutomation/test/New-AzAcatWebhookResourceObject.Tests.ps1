@@ -15,7 +15,17 @@ if(($null -eq $TestName) -or ($TestName -contains 'New-AzAcatWebhookResourceObje
 }
 
 Describe 'New-AzAcatWebhookResourceObject' {
-    It '__AllParameterSets' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It '__AllParameterSets' {
+        $secret = ConvertTo-SecureString $env.Secret -AsPlainText
+        $webhookObj = New-AzAcatWebhookResourceObject -TriggerMode "all" -PayloadUrl $env.PayloadUrl -Secret $secret
+
+        $webhookObj.PayloadUrl | Should -Be $env.PayloadUrl
+        $webhookObj.ContentType | Should -Be "application/json"
+        $webhookObj.EnableSslVerification | Should -Be "true"
+        $webhookObj.Status | Should -Be "Enabled"
+        $webhookObj.SendAllEvent | Should -Be "true"
+        $webhookObj.Event.Count | Should -Be 0
+        $webhookObj.UpdateWebhookKey | Should -Be "true"
+        $webhookObj.WebhookKey | Should -Be $env.Secret
     }
 }

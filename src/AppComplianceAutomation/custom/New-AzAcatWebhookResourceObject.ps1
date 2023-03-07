@@ -83,7 +83,8 @@ function New-AzAcatWebhookResourceObject {
 
         if ($PSBoundParameters.ContainsKey("EnableSslVerification")) {
             $Object.EnableSslVerification = $EnableSslVerification
-        } else {
+        }
+        else {
             $Object.EnableSslVerification = "true"
         }
 
