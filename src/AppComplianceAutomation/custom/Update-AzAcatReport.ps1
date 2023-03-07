@@ -124,14 +124,32 @@ function Update-AzAcatReport {
     )
 
     process {
+        $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
+        $RuntimeParams = Get-Runtime-Parameters -PSBoundParameters $PSBoundParameters
+
+        # Onboard if update resource ids
         if ($PSBoundParameters.ContainsKey("Resource")) {
-            $Token = Get-Token
-            $ResourceIds = Get-ResourceId-Array $Resource
-            $Subscriptions = Get-Resource-Subscriptions $ResourceIds
-            Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions -XmsAadUserToken $Token
+            if ($PSBoundParameters.ContainsKey("Parameter")) {
+                $ResourceIds = Get-ResourceId-Array -Resources $Parameter.Resource
+            }
+            else {
+                $ResourceIds = Get-ResourceId-Array -Resources $Resource
+            }
+            $Subscriptions = Get-Resource-Subscriptions -Resources $ResourceIds
+            Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions `
+                -XmsAadUserToken $PSBoundParameters.XmsAadUserToken `
+                @RuntimeParams
         }
 
-        $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
-        Az.AppComplianceAutomation.internal\Update-AzAppComplianceAutomationReport @PSBoundParameters
+        # Update report
+        if ($PSBoundParameters.ContainsKey("Parameter")) {
+            $Parameter |
+            Az.AppComplianceAutomation.internal\Update-AzAppComplianceAutomationReport -Name $Name `
+                -XmsAadUserToken $PSBoundParameters.XmsAadUserToken `
+                @RuntimeParams
+        }
+        else {
+            Az.AppComplianceAutomation.internal\Update-AzAppComplianceAutomationReport @PSBoundParameters
+        }
     }
 }

@@ -22,6 +22,8 @@ function setupEnv() {
     # For any resources you created for test, you should add it to $env here.
     $env.ReportName = "powershell-test-report-fordelete"
     $env.GeneratedReportName = "powershell-test-report"
+    $env.ResourceId = "/subscriptions/f744fbde-a95f-437e-8fcf-38f9324e3d9c/resourceGroups/github-action-deploy/providers/Microsoft.Storage/storageAccounts/storexahdnmg5xqlduarm"
+    $env.TimeZone = "Pacific Standard Time"
 
     $envFile = 'env.json'
     if ($TestMode -eq 'live') {

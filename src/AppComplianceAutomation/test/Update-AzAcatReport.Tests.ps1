@@ -15,11 +15,20 @@ if(($null -eq $TestName) -or ($TestName -contains 'Update-AzAcatReport'))
 }
 
 Describe 'Update-AzAcatReport' {
-    It 'UpdateExpanded' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'UpdateExpanded' {
+        $oldReport = Get-AzAcatReport -Name $env.GeneratedReportName
+
+        $report = Update-AzAcatReport -Name $env.GeneratedReportName `
+            -Resource $oldReport.Resource `
+            -TimeZone $env.TimeZone `
+            -TriggerTime $oldReport.TriggerTime
+        $report.TimeZone | Should -Be $env.TimeZone
     }
 
-    It 'Update' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Update' {
+        $oldReport = Get-AzAcatReport -Name $env.GeneratedReportName
+        $oldReport.TimeZone = $env.TimeZone
+        $report = $oldReport | Update-AzAcatReport -Name $env.GeneratedReportName
+        $report.TimeZone | Should -Be $env.TimeZone
     }
 }

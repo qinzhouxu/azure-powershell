@@ -15,11 +15,14 @@ if(($null -eq $TestName) -or ($TestName -contains 'New-AzAcatReport'))
 }
 
 Describe 'New-AzAcatReport' {
-    It 'Create' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Create' {
+        $param = New-AzAcatReportResourceObject -Resource @(@{ResourceId = $env.ResourceId})
+        $report = $param | New-AzAcatReport -Name $env.ReportName
+        $report.Name | Should -Be $env.ReportName
     }
 
-    It 'CreateExpanded' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'CreateExpanded' {
+        $report = New-AzAcatReport -Name $env.ReportName -Resource @(@{ResourceId = $env.ResourceId})
+        $report.Name | Should -Be $env.ReportName
     }
 }

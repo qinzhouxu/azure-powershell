@@ -124,22 +124,40 @@ function New-AzAcatReport {
     )
 
     process {
-        $Token = Get-Token
-        $ResourceIds = Get-ResourceId-Array $Resource
-        $Subscriptions = Get-Resource-Subscriptions $ResourceIds
-        Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions -XmsAadUserToken $Token
 
+        # Set default parameters
         if (-Not $PSBoundParameters.ContainsKey("TimeZone")) {
             $TimeZone = (Get-TimeZone).StandardName
             $PSBoundParameters.Add("TimeZone", $TimeZone)
         }
-
         if (-Not $PSBoundParameters.ContainsKey("TriggerTime")) {
             $TriggerTime = Get-Nearest-Time
             $PSBoundParameters.Add("TriggerTime", $TriggerTime)
         }
-
         $PSBoundParameters = Add-Custom-Header -PSBoundParameters $PSBoundParameters
-        Az.AppComplianceAutomation.internal\New-AzAppComplianceAutomationReport @PSBoundParameters
+        $RuntimeParams = Get-Runtime-Parameters -PSBoundParameters $PSBoundParameters
+
+        # Onboard
+        if ($PSBoundParameters.ContainsKey("Parameter")) {
+            $ResourceIds = Get-ResourceId-Array -Resources $Parameter.Resource
+        }
+        else {
+            $ResourceIds = Get-ResourceId-Array -Resources $Resource
+        }
+        $Subscriptions = Get-Resource-Subscriptions -Resources $ResourceIds
+        Az.AppComplianceAutomation.internal\Invoke-AzAppComplianceAutomationOnboard -SubscriptionId $Subscriptions `
+            -XmsAadUserToken $PSBoundParameters.XmsAadUserToken `
+            @RuntimeParams
+        
+        # Create report
+        if ($PSBoundParameters.ContainsKey("Parameter")) {
+            $Parameter |
+            Az.AppComplianceAutomation.internal\New-AzAppComplianceAutomationReport -Name $Name `
+                -XmsAadUserToken $PSBoundParameters.XmsAadUserToken `
+                @RuntimeParams
+        }
+        else {
+            Az.AppComplianceAutomation.internal\New-AzAppComplianceAutomationReport @PSBoundParameters
+        }
     }
 }
