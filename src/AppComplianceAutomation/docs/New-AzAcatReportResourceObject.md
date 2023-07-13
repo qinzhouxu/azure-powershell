@@ -131,8 +131,6 @@ RESOURCE <IResourceMetadata[]>: List of resource data.
   - `[ResourceKind <String>]`: Resource kind.
   - `[ResourceOrigin <ResourceOrigin?>]`: Resource Origin.
   - `[ResourceType <String>]`: Resource type. e.g. "Microsoft.Compute/virtualMachines"
-  - `[Tag <IResourceMetadataTags>]`: Resource's tag type.
-    - `[(Any) <String>]`: This indicates any property can be added to this object.
 
 ## RELATED LINKS
 
