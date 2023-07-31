@@ -1,22 +1,6 @@
-### Example 1: {{ Add title here }}
+### Example 1: Delete a report.
 ```powershell
-{{ Add code here }}
+Remove-AzAcatReport -Name "test-report"
 ```
 
-```output
-{{ Add output here }}
-```
-
-{{ Add description here }}
-
-### Example 2: {{ Add title here }}
-```powershell
-{{ Add code here }}
-```
-
-```output
-{{ Add output here }}
-```
-
-{{ Add description here }}
-
+Delete a report.

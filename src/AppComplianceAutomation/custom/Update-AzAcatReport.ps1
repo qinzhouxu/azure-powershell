@@ -126,7 +126,7 @@ function Update-AzAcatReport {
         $RuntimeParams = Get-Runtime-Parameters -PSBoundParameters $PSBoundParameters
 
         # Onboard if update resource ids
-        if ($PSBoundParameters.ContainsKey("Resource")) {
+        if (($PSBoundParameters.ContainsKey("Resource")) -or ($PSBoundParameters.ContainsKey("Parameter") -and ($Parameter.Resource -ne $null))) {
             if ($PSBoundParameters.ContainsKey("Parameter")) {
                 $ResourceIds = Get-ResourceId-Array -Resources $Parameter.Resource
             }

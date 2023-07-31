@@ -28,27 +28,64 @@ Get the AppComplianceAutomation webhook and its properties.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: List webhooks under a report.
 ```powershell
-{{ Add code here }}
+Get-AzAcatWebhook -ReportName "test-report"
 ```
 
 ```output
-{{ Add output here }}
+Name          SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastM
+                                                                                                        odifiedBy
+----          -------------------  ------------------- ----------------------- ------------------------ ---------------
+test-webhook2 7/19/2023 6:32:51 AM                     User                    7/19/2023 6:32:51 AM
+test-webhook  3/1/2023 5:17:12 AM                      User                    7/18/2023 6:23:55 PM     FunctionApp
 ```
 
-{{ Add description here }}
+List webhooks under a report.
 
-### Example 2: {{ Add title here }}
+### Example 2: List top 2 webhooks under a report.
 ```powershell
-{{ Add code here }}
+Get-AzAcatReport -SkipToken 0 -Top 2
 ```
 
 ```output
-{{ Add output here }}
+Name          SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastM
+                                                                                                        odifiedBy
+----          -------------------  ------------------- ----------------------- ------------------------ ---------------
+test-webhook2 7/19/2023 6:32:51 AM                     User                    7/19/2023 6:32:51 AM
+test-webhook  3/1/2023 5:17:12 AM                      User                    7/18/2023 6:23:55 PM     FunctionApp
 ```
 
-{{ Add description here }}
+List top 2 webhooks under a report.
+
+### Example 3: Get webhook under a report by webhook name.
+```powershell
+Get-AzAcatWebhook -ReportName "test-report" -Name "test-webhook"
+```
+
+```output
+Name         SystemDataCreatedAt SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastMod
+                                                                                                      ifiedBy
+----         ------------------- ------------------- ----------------------- ------------------------ -----------------
+test-webhook 3/1/2023 5:17:12 AM                     User                    7/18/2023 6:23:55 PM     FunctionApp
+```
+
+Get webhook under a report by webhook name.
+
+### Example 4: Select specific property of webhooks.
+```powershell
+Get-AzAcatWebhook -ReportName "test-report" -Select "name"
+```
+
+```output
+Name          SystemDataCreatedAt SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastMo
+                                                                                                       difiedBy
+----          ------------------- ------------------- ----------------------- ------------------------ ----------------
+test-webhook2
+test-webhook
+```
+
+Select specific property of webhooks.
 
 ## PARAMETERS
 

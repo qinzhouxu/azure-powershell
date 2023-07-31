@@ -30,7 +30,6 @@ function New-AzAcatReportResourceObject {
         [Parameter()]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
         # List of resource data.
-        # To construct, see NOTES section for RESOURCE properties and create a hash table.
         ${Resource},
 
         [Parameter()]

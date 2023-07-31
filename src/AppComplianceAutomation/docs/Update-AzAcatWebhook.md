@@ -31,27 +31,51 @@ Update an exiting AppComplianceAutomation webhook.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Update certain fields of a webhook under a report.
 ```powershell
-{{ Add code here }}
+$secret = ConvertTo-SecureString "testSecret" -AsPlainText
+Update-AzAcatWebhook -Name "test-webhook" -ReportName "test-report" -TriggerMode "all" -PayloadUrl "https://example.com" -Secret $secret
 ```
 
 ```output
-{{ Add output here }}
+Name          SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastM
+                                                                                                        odifiedBy
+----          -------------------  ------------------- ----------------------- ------------------------ ---------------
+test-webhook  7/27/2023 9:14:20 AM                     User                    7/31/2023 7:50:04 AM
 ```
 
-{{ Add description here }}
+Update certain fields of a webhook under a report.
 
-### Example 2: {{ Add title here }}
+### Example 2: Update all fields of a webhook under a report.
 ```powershell
-{{ Add code here }}
+$secret = ConvertTo-SecureString "testSecret" -AsPlainText
+Update-AzAcatWebhook -Name "test-webhook" -ReportName "test-report" -EnableSslVerification "true"  -Disable -TriggerMode "all" -PayloadUrl "https://example.com" -ContentType "application/json" -Secret $secret
 ```
 
 ```output
-{{ Add output here }}
+Name          SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastM
+                                                                                                        odifiedBy
+----          -------------------  ------------------- ----------------------- ------------------------ ---------------
+test-webhook  7/27/2023 9:14:20 AM                     User                    7/31/2023 7:50:04 AM
 ```
 
-{{ Add description here }}
+Update all fields of a webhook under a report.
+
+### Example 3: Update a webhook under a report use parameter object.
+```powershell
+$secret = ConvertTo-SecureString "testSecret" -AsPlainText
+$param = New-AzAcatWebhookResourceObject -TriggerMode "all" -PayloadUrl "https://example.com" -Secret $secret
+$param | Update-AzAcatWebhook -Name "test-webhook" -ReportName "test-report"
+```
+
+```output
+Name          SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastM
+                                                                                                        odifiedBy
+----          -------------------  ------------------- ----------------------- ------------------------ ---------------
+test-webhook  7/27/2023 9:14:20 AM                     User                    7/31/2023 7:50:04 AM
+```
+
+Update a webhook under a report use parameter object.
 
 ## PARAMETERS
 

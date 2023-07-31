@@ -78,6 +78,9 @@ function New-AzAcatWebhookResourceObject {
         if (-Not $PSBoundParameters.ContainsKey("ContentType")) {
             $Object.Add("ContentType", "application/json")
         }
+        else {
+            $Object.Add("ContentType", $ContentType)
+        }
 
         if ($PSBoundParameters.ContainsKey("EnableSslVerification")) {
             $Object.EnableSslVerification = $EnableSslVerification

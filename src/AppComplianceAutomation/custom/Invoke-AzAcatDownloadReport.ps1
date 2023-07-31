@@ -144,5 +144,13 @@ function Invoke-AzAcatDownloadReport {
             $Url = $Content.CompliancePdfReportSasUri
             Invoke-WebRequest $Url -OutFile $SavePath
         }
+
+        if ($DownloadType -eq "ComplianceDetailedPdfReport") {
+            $SavePath += ".pdf"
+            $Url = $Content.CompliancePdfReportSasUri
+            Invoke-WebRequest $Url -OutFile $SavePath
+        }
+
+        Get-ChildItem -Path $SavePath
     }
 }

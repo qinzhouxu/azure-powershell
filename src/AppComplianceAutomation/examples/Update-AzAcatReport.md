@@ -1,22 +1,42 @@
-### Example 1: {{ Add title here }}
+### Example 1: Update certain fields of a report.
 ```powershell
-{{ Add code here }}
+Update-AzAcatReport -Name "test-report" -TimeZone "China Standard Time" -TriggerTime "2023-07-19T08:00:00.000Z"
 ```
 
 ```output
-{{ Add output here }}
+Name            SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLas
+                                                                                                          tModifiedBy
+----            -------------------  ------------------- ----------------------- ------------------------ -------------
+test-report     7/19/2023 8:56:20 AM                     User                    7/19/2023 8:56:20 AM
 ```
 
-{{ Add description here }}
+Update certain fields of a report.
 
-### Example 2: {{ Add title here }}
+### Example 2: Update all fields of a report.
 ```powershell
-{{ Add code here }}
+Update-AzAcatReport -Name "test-report" -Resource @(@{resourceId="/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm"; resourceOrigin="Azure"; resourceType="microsoft.compute/virtualmachines"}) -TimeZone "China Standard Time" -TriggerTime "2023-07-19T08:00:00.000Z" -OfferGuid "00000000-0000-0000-0000-000000000001"
 ```
 
 ```output
-{{ Add output here }}
+Name            SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLas
+                                                                                                          tModifiedBy
+----            -------------------  ------------------- ----------------------- ------------------------ -------------
+test-report     7/19/2023 8:56:20 AM                     User                    7/19/2023 8:56:20 AM
 ```
 
-{{ Add description here }}
+Update all fields of a report.
 
+### Example 3: Update a report use parameter object.
+```powershell
+$param = New-AzAcatReportResourceObject -TimeZone "China Standard Time" -TriggerTime "2023-07-19T08:00:00.000Z"
+$param | Update-AzAcatReport -Name "test-report"
+```
+
+```output
+Name            SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLas
+                                                                                                          tModifiedBy
+----            -------------------  ------------------- ----------------------- ------------------------ -------------
+test-report     7/19/2023 8:56:20 AM                     User                    7/19/2023 8:56:20 AM
+```
+
+Update a report use parameter object.

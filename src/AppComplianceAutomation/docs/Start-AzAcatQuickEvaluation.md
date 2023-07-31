@@ -22,27 +22,18 @@ Trigger evaluation for given resourceIds to get quick compliance result.
 
 ## EXAMPLES
 
-### Example 1: {{ Add title here }}
+### Example 1: Get resources' quick compliance results.
 ```powershell
-{{ Add code here }}
+Start-AzAcatQuickEvaluation -Resources @("/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm")
 ```
 
 ```output
-{{ Add output here }}
+EvaluationEndTime QuickAssessment ResourceId
+----------------- --------------- ----------
+                  {}              {/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/testrg/providers…
 ```
 
-{{ Add description here }}
-
-### Example 2: {{ Add title here }}
-```powershell
-{{ Add code here }}
-```
-
-```output
-{{ Add output here }}
-```
-
-{{ Add description here }}
+Get resources' quick compliance results.
 
 ## PARAMETERS
 

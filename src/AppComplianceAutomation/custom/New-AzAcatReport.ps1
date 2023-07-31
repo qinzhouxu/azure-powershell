@@ -37,13 +37,11 @@ function New-AzAcatReport {
         [Parameter(ParameterSetName = 'Create', Mandatory, ValueFromPipeline)]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IReportResource]
         # A class represent an AppComplianceAutomation report resource.
-        # To construct, see NOTES section for PARAMETER properties and create a hash table.
         ${Parameter},
 
         [Parameter(ParameterSetName = 'CreateExpanded', Mandatory)]
         [Microsoft.Azure.PowerShell.Cmdlets.AppComplianceAutomation.Models.Api20230215Preview.IResourceMetadata[]]
         # List of resource data.
-        # To construct, see NOTES section for RESOURCE properties and create a hash table.
         ${Resource},
 
         [Parameter(ParameterSetName = 'CreateExpanded')]

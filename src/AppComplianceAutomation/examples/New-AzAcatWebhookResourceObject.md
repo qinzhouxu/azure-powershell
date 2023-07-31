@@ -1,22 +1,27 @@
-### Example 1: {{ Add title here }}
+### Example 1: Create a WebhookResource object with default values.
 ```powershell
-{{ Add code here }}
+$secret = ConvertTo-SecureString "testSecret" -AsPlainText
+New-AzAcatWebhookResourceObject -TriggerMode "all" -PayloadUrl "https://example.com" -Secret $secret
 ```
 
 ```output
-{{ Add output here }}
+Name SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastModifiedBy
+---- -------------------  ------------------- ----------------------- ------------------------ ------------------------
+     1/1/0001 12:00:00 AM                                             1/1/0001 12:00:00 AM
 ```
 
-{{ Add description here }}
+Create a WebhookResource object with default values.
 
-### Example 2: {{ Add title here }}
+### Example 2: Create a WebhookResource object.
 ```powershell
-{{ Add code here }}
+$secret = ConvertTo-SecureString "testSecret" -AsPlainText
+New-AzAcatWebhookResourceObject -EnableSslVerification "true"  -Disable -TriggerMode "all" -PayloadUrl "https://example.com" -ContentType "application/json" -Secret $secret
 ```
 
 ```output
-{{ Add output here }}
+Name SystemDataCreatedAt  SystemDataCreatedBy SystemDataCreatedByType SystemDataLastModifiedAt SystemDataLastModifiedBy
+---- -------------------  ------------------- ----------------------- ------------------------ ------------------------
+     1/1/0001 12:00:00 AM                                             1/1/0001 12:00:00 AM
 ```
 
-{{ Add description here }}
-
+Create a WebhookResource object.
